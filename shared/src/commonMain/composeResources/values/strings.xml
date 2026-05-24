@@ -1,0 +1,16 @@
+<resources>
+
+    <string name="hello_user">¡Hola, %1$s!</string>
+
+    <string name="welcome_app">¡Bienvenido a la App!</string>
+    <string name="explore_our_multiplatform_platform">Explora nuestra plataforma multiplataforma</string>
+    <string name="start">Comenzar</string>
+    <string name="login">Iniciar Sesión</string>
+    <string name="user_name">Nombre de usuario</string>
+    <string name="user_example">Ulises Gonzalez</string>
+    <string name="user">Usuario</string>
+    <string name="back">Volver atrás</string>
+    <string name="logout">Cerrar Sesión</string>
+    <string name="navigate_to_home_successful">Has navegado con éxito al Home</string>
+
+</resources>

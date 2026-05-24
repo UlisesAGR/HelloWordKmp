@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+ - colors.xml - Dark
+ - Copyright (c) 2026. All rights reserved
+-->
+<resources>
+    <!-- Light primary colors -->
+    <color name="md_theme_primary">#FF6291</color>
+    <color name="md_theme_onPrimary">#00513F</color>
+    <color name="md_theme_primaryContainer">#009473</color>
+    <color name="md_theme_onPrimaryContainer">#A3F1D6</color>
+    <!-- Light secondary colors -->
+    <color name="md_theme_secondary">#E5F6D4</color>
+    <color name="md_theme_onSecondary">#FFFFFF</color>
+    <color name="md_theme_secondaryContainer">#D6F5C7</color>
+    <color name="md_theme_onSecondaryContainer">#0A2000</color>
+    <!-- Light tertiary colors -->
+    <color name="md_theme_tertiary">#FFDF56</color>
+    <color name="md_theme_onTertiary">#FFFFFF</color>
+    <color name="md_theme_tertiaryContainer">#EAC989</color>
+    <color name="md_theme_onTertiaryContainer">#1A1E00</color>
+    <!-- Light error colors -->
+    <color name="md_theme_error">#FA4C4C</color>
+    <color name="md_theme_errorContainer">#FFFFFF</color>
+    <color name="md_theme_onError">#FFDAD6</color>
+    <color name="md_theme_onErrorContainer">#410002</color>
+    <!-- Light background colors -->
+    <color name="md_theme_background">#263238</color>
+    <color name="md_theme_onBackground">#FFFFFF</color>
+    <!-- Light surface colors -->
+    <color name="md_theme_surface">#37474F</color>
+    <color name="md_theme_onSurface">#FCFDFF</color>
+    <color name="md_theme_surfaceVariant">#46464F</color>
+    <color name="md_theme_onSurfaceVariant">#C7C5D0</color>
+    <!-- Light other colors -->
+    <color name="md_theme_outline">#918F9A</color>
+    <color name="md_theme_inverseOnSurface">#121318</color>
+    <color name="md_theme_inverseSurface">#E4E1E9</color>
+    <color name="md_theme_inversePrimary">#B8D3A5</color>
+    <color name="md_theme_shadow">#000000</color>
+    <color name="md_theme_surfaceTint">#BFC2FF</color>
+    <color name="md_theme_outlineVariant">#46464F</color>
+    <color name="md_theme_scrim">#000000</color>
+    <!-- Other colors -->
+    <color name="transparent">#00000000</color>
+</resources>
