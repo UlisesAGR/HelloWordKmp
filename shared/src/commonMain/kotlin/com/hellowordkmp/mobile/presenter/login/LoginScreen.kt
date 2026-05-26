@@ -1,3 +1,7 @@
+/*
+ * LoginScreen.kt
+ * Copyright (c) 2026. All rights reserved
+ */
 package com.hellowordkmp.mobile.presenter.login
 
 import androidx.compose.foundation.layout.Arrangement

@@ -1,3 +1,7 @@
+/*
+ * WelcomeScreen.kt
+ * Copyright (c) 2026. All rights reserved
+ */
 package com.hellowordkmp.mobile.presenter.welcome
 
 import androidx.compose.foundation.layout.Arrangement

@@ -1,4 +1,8 @@
-package com.hellowordkmp.mobile
+/*
+ * AppActivity.kt
+ * Copyright (c) 2026. All rights reserved
+ */
+package com.hellowordkmp.mobile.presenter
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -8,7 +12,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.hellowordkmp.mobile.presenter.navigation.AppNavigation
 import com.hellowordkmp.mobile.theme.AndroidSystemUiController
 
-class MainActivity : ComponentActivity() {
+class AppActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val splashScreen = installSplashScreen()

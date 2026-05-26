@@ -1,4 +1,8 @@
-package com.hellowordkmp.mobile.presenter.home
+/*
+ * HomeViewModel.kt
+ * Copyright (c) 2026. All rights reserved
+ */
+package com.hellowordkmp.mobile.presenter.home.view
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -6,13 +10,18 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.hellowordkmp.mobile.presenter.components.ButtonCustom
 import com.hellowordkmp.mobile.presenter.components.SafeScreenContainer
 import com.hellowordkmp.mobile.presenter.components.TextBigCustom
 import com.hellowordkmp.mobile.presenter.components.TextSmallCustom
+import com.hellowordkmp.mobile.presenter.home.viewmodel.HomeViewModel
 import com.hellowordkmp.mobile.theme.AppTheme
 import com.hellowordkmp.mobile.utils.values.Dimens
 import hellowordkmp.shared.generated.resources.Res
@@ -20,12 +29,20 @@ import hellowordkmp.shared.generated.resources.hello_user
 import hellowordkmp.shared.generated.resources.logout
 import hellowordkmp.shared.generated.resources.navigate_to_home_successful
 import org.jetbrains.compose.resources.stringResource
+import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun HomeScreen(
+    viewModel: HomeViewModel = koinViewModel(),
     username: String,
     onLogout: () -> Unit,
 ) {
+    val users by viewModel.homeUiState.collectAsStateWithLifecycle()
+    LazyColumn {
+        items(users) { user ->
+//            UserItem(user)
+        }
+    }
     SafeScreenContainer {
         Column(
             modifier = Modifier
