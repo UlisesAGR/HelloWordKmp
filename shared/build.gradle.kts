@@ -34,7 +34,7 @@ kotlin {
            isIncludeAndroidResources = true
        }
     }
-    
+
     sourceSets {
         // Android
         androidMain.dependencies {
@@ -55,10 +55,12 @@ kotlin {
             implementation(compose.materialIconsExtended)
             implementation(libs.androidx.navigation.compose)
             implementation(libs.kotlinx.serialization.json)
+            implementation(libs.bundles.dev.moko.permissions.libs)
         }
         // Shared Test
         commonTest.dependencies {
             implementation(libs.kotlin.test)
+            implementation(libs.dev.moko.permissions.test)
         }
     }
 }

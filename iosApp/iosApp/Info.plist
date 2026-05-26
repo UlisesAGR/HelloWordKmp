@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-	<key>CADisableMinimumFrameDurationOnPhone</key>
-	<true/>
-</dict>
+    <dict>
+        <key>CADisableMinimumFrameDurationOnPhone</key>
+        <true/>
+
+        <key>NSLocationWhenInUseUsageDescription</key>
+        <string>Necesitamos acceder a tu ubicación para mostrarte información relevante cerca de ti.</string>
+        <key>NSLocationAlwaysUsageDescription</key>
+        <string>Necesitamos acceder a tu ubicación para brindarte servicios basados en tu posición actual.</string>
+    </dict>
 </plist>

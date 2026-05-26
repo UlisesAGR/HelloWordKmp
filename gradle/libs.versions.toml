@@ -23,6 +23,8 @@ androidx-navigation = "2.9.2"
 serialization = "1.11.0"
 foundation = "1.11.2"
 lib-splashscreen = '1.2.0'
+lib-mokoPermissions-compose = "0.20.1"
+lib-mokoPermissions-test = "0.20.1"
 
 # libraries
 [libraries]
@@ -48,6 +50,32 @@ androidx-navigation-compose = { module = "org.jetbrains.androidx.navigation:navi
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version = "1.11.0" }
 androidx-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "foundation" }
 androidx-splashscreen = { module = 'androidx.core:core-splashscreen', version.ref = 'lib-splashscreen' }
+dev-moko-permissions-compose = { module = 'dev.icerock.moko:permissions-compose', version.ref = 'lib-mokoPermissions-compose' }
+dev-moko-permissions-bluetooth = { module = 'dev.icerock.moko:permissions-bluetooth', version.ref = 'lib-mokoPermissions-compose' }
+dev-moko-permissions-camera = { module = 'dev.icerock.moko:permissions-camera', version.ref = 'lib-mokoPermissions-compose' }
+dev-moko-permissions-contacts = { module = 'dev.icerock.moko:permissions-contacts', version.ref = 'lib-mokoPermissions-compose' }
+dev-moko-permissions-gallery = { module = 'dev.icerock.moko:permissions-gallery', version.ref = 'lib-mokoPermissions-compose' }
+dev-moko-permissions-location = { module = 'dev.icerock.moko:permissions-location', version.ref = 'lib-mokoPermissions-compose' }
+dev-moko-permissions-microphone = { module = 'dev.icerock.moko:permissions-microphone', version.ref = 'lib-mokoPermissions-compose' }
+dev-moko-permissions-motion = { module = 'dev.icerock.moko:permissions-motion', version.ref = 'lib-mokoPermissions-compose' }
+dev-moko-permissions-notifications = { module = 'dev.icerock.moko:permissions-notifications', version.ref = 'lib-mokoPermissions-compose' }
+dev-moko-permissions-storage = { module = 'dev.icerock.moko:permissions-storage', version.ref = 'lib-mokoPermissions-compose' }
+dev-moko-permissions-test = { module = 'dev.icerock.moko:permissions-test', version.ref = 'lib-mokoPermissions-test' }
+
+# bundles
+[bundles]
+dev-moko-permissions-libs = [
+    'dev-moko-permissions-compose',
+    'dev-moko-permissions-bluetooth',
+    'dev-moko-permissions-camera',
+    'dev-moko-permissions-contacts',
+    'dev-moko-permissions-gallery',
+    'dev-moko-permissions-location',
+    'dev-moko-permissions-microphone',
+    'dev-moko-permissions-motion',
+    'dev-moko-permissions-notifications',
+    'dev-moko-permissions-storage',
+]
 
 # plugins
 [plugins]

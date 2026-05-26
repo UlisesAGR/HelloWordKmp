@@ -14,7 +14,10 @@ import com.hellowordkmp.mobile.presenter.components.SafeScreenContainer
 import com.hellowordkmp.mobile.presenter.components.TextBigCustom
 import com.hellowordkmp.mobile.presenter.components.TextSmallCustom
 import com.hellowordkmp.mobile.theme.AppTheme
+import com.hellowordkmp.mobile.utils.permission.PermissionRequestEffect
 import com.hellowordkmp.mobile.utils.values.Dimens
+import dev.icerock.moko.permissions.Permission
+import dev.icerock.moko.permissions.location.LOCATION
 import hellowordkmp.shared.generated.resources.Res
 import hellowordkmp.shared.generated.resources.login
 import hellowordkmp.shared.generated.resources.welcome_app
@@ -24,6 +27,7 @@ import org.jetbrains.compose.resources.stringResource
 fun WelcomeScreen(
     onNavigateToLogin: () -> Unit,
 ) {
+    PermissionRequestEffect(permission = Permission.LOCATION)
     SafeScreenContainer {
         Column(
             modifier = Modifier
