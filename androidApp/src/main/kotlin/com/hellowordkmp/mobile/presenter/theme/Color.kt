@@ -1,4 +1,8 @@
-package com.hellowordkmp.mobile.theme
+/*
+ * Color.kt
+ * Copyright (c) 2026. All rights reserved
+ */
+package com.hellowordkmp.mobile.presenter.theme
 
 import androidx.compose.ui.graphics.Color
 

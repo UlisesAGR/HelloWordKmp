@@ -2,14 +2,14 @@
  * AppActivity.kt
  * Copyright (c) 2026. All rights reserved
  */
-package com.hellowordkmp.mobile.presenter
+package com.hellowordkmp.mobile.presenter.presenter
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.hellowordkmp.mobile.presenter.navigation.base.BaseNavigation
-import com.hellowordkmp.mobile.theme.AndroidSystemUiController
+import com.hellowordkmp.mobile.presenter.theme.AppTheme
 
 class AppActivity : ComponentActivity() {
 
@@ -18,14 +18,9 @@ class AppActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         splashScreen.setKeepOnScreenCondition { false }
         setContent {
-//            val isDarkMode = isSystemInDarkTheme()
-            AndroidSystemUiController(
-                window = window,
-                view = window.decorView,
-            ).apply {
-                setSystemBarsColor(darkIcons = false)
+            AppTheme {
+                BaseNavigation()
             }
-            BaseNavigation()
         }
     }
 }

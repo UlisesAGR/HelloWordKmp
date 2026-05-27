@@ -1,5 +1,5 @@
 /*
- * createHttpClient.kt
+ * NetworkClient.kt
  * Copyright (c) 2026. All rights reserved
  */
 package com.hellowordkmp.mobile.data.network.client

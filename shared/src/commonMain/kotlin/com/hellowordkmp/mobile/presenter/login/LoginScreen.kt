@@ -24,7 +24,6 @@ import com.hellowordkmp.mobile.presenter.components.ButtonCustom
 import com.hellowordkmp.mobile.presenter.components.SafeScreenContainer
 import com.hellowordkmp.mobile.presenter.components.TextFieldCustom
 import com.hellowordkmp.mobile.presenter.components.TextMediumCustom
-import com.hellowordkmp.mobile.theme.AppTheme
 import com.hellowordkmp.mobile.utils.values.Dimens
 import hellowordkmp.shared.generated.resources.Res
 import hellowordkmp.shared.generated.resources.login
@@ -78,12 +77,10 @@ fun LoginScreen(
 )
 @Composable
 private fun LoginScreenPreview() {
-    AppTheme {
-        SafeScreenContainer {
-            LoginScreen(
-                onBack = {},
-                onLoginSuccess = {},
-            )
-        }
+    SafeScreenContainer {
+        LoginScreen(
+            onBack = {},
+            onLoginSuccess = {},
+        )
     }
 }

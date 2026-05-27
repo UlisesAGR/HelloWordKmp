@@ -17,7 +17,6 @@ import com.hellowordkmp.mobile.presenter.components.ButtonCustom
 import com.hellowordkmp.mobile.presenter.components.SafeScreenContainer
 import com.hellowordkmp.mobile.presenter.components.TextBigCustom
 import com.hellowordkmp.mobile.presenter.components.TextSmallCustom
-import com.hellowordkmp.mobile.theme.AppTheme
 import com.hellowordkmp.mobile.utils.permission.PermissionRequestEffect
 import com.hellowordkmp.mobile.utils.values.Dimens
 import dev.icerock.moko.permissions.Permission
@@ -54,11 +53,9 @@ fun WelcomeScreen(
 @Preview(showBackground = true)
 @Composable
 private fun WelcomeScreenPreview() {
-    AppTheme {
-        SafeScreenContainer {
-            WelcomeScreen(
-                onNavigateToLogin = {},
-            )
-        }
+    SafeScreenContainer {
+        WelcomeScreen(
+            onNavigateToLogin = {},
+        )
     }
 }

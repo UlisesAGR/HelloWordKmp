@@ -1,10 +1,18 @@
-package com.hellowordkmp.mobile.theme
+/*
+ * Theme.kt
+ * Copyright (c) 2026. All rights reserved
+ */
+package com.hellowordkmp.mobile.presenter.theme
 
+import android.app.Activity
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
+import androidx.compose.ui.platform.LocalView
+import androidx.core.view.WindowCompat
 
 private val LightColors = lightColorScheme(
     primary = primaryLight,
@@ -83,11 +91,34 @@ private val DarkColors = darkColorScheme(
 )
 
 @Composable
+private fun SetupWindowAppearance(darkTheme: Boolean) {
+    val view = LocalView.current
+    if (!view.isInEditMode) {
+        SideEffect {
+            val window = (view.context as? Activity)?.window
+            window?.let {
+                val insetsController = WindowCompat.getInsetsController(it, view)
+
+                insetsController.isAppearanceLightStatusBars = !darkTheme
+                insetsController.isAppearanceLightNavigationBars = !darkTheme
+
+                insetsController.isAppearanceLightStatusBars = !darkTheme
+                insetsController.isAppearanceLightNavigationBars = !darkTheme
+
+                insetsController.isAppearanceLightStatusBars = !darkTheme
+                insetsController.isAppearanceLightNavigationBars = !darkTheme
+            }
+        }
+    }
+}
+
+@Composable
 fun AppTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit,
 ) {
     val colorScheme = if (darkTheme) DarkColors else LightColors
+    SetupWindowAppearance(darkTheme)
     MaterialTheme(
         colorScheme = colorScheme,
         typography = getAppTypography(),
