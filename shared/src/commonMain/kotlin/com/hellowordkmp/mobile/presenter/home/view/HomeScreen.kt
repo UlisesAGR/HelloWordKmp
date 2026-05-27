@@ -11,8 +11,10 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.hellowordkmp.mobile.presenter.components.ErrorDialogCustom
 import com.hellowordkmp.mobile.presenter.components.LoadingCustom
 import com.hellowordkmp.mobile.presenter.components.SafeScreenContainer
+import com.hellowordkmp.mobile.presenter.components.SafeScreenContainerTest
 import com.hellowordkmp.mobile.presenter.home.viewmodel.HomeUiEvent
 import com.hellowordkmp.mobile.presenter.home.viewmodel.HomeViewModel
+import com.hellowordkmp.mobile.theme.AppTheme
 import hellowordkmp.shared.generated.resources.Res
 import hellowordkmp.shared.generated.resources.accept
 import hellowordkmp.shared.generated.resources.idle
@@ -23,8 +25,8 @@ import org.koin.compose.viewmodel.koinViewModel
 @Composable
 fun HomeScreen(
     viewModel: HomeViewModel = koinViewModel(),
-    username: String,
-    onLogout: () -> Unit,
+    username: String = "",
+    onLogout: () -> Unit = {},
 ) {
     val homeUiState by viewModel.homeUiState.collectAsStateWithLifecycle()
     val homeUiEvent by viewModel.homeUiEvent.collectAsStateWithLifecycle()
@@ -61,10 +63,7 @@ fun HomeScreen(
 )
 @Composable
 private fun LoginScreenPreview() {
-    SafeScreenContainer {
-        HomeScreen(
-            username = "",
-            onLogout = {},
-        )
+    SafeScreenContainerTest {
+        HomeScreen()
     }
 }

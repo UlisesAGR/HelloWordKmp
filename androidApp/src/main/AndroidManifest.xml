@@ -19,7 +19,7 @@
         tools:ignore="MissingClass">
 
         <activity
-            android:name=".presenter.presenter.AppActivity"
+            android:name=".AppActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Splash.Theme.Starting"

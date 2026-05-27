@@ -15,6 +15,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import com.hellowordkmp.mobile.theme.AppTheme
 
 @Composable
 fun SafeScreenContainer(
@@ -36,6 +37,32 @@ fun SafeScreenContainer(
                 .background(backgroundColor),
         ) {
             content()
+        }
+    }
+}
+
+@Composable
+fun SafeScreenContainerTest(
+    modifier: Modifier = Modifier,
+    systemColor: Color = MaterialTheme.colorScheme.primary,
+    backgroundColor: Color = MaterialTheme.colorScheme.background,
+    content: @Composable BoxScope.() -> Unit,
+) {
+    AppTheme {
+        Surface(
+            modifier = Modifier
+                .fillMaxSize(),
+            color = systemColor,
+        ) {
+            Box(
+                modifier = modifier
+                    .fillMaxSize()
+                    .statusBarsPadding()
+                    .navigationBarsPadding()
+                    .background(backgroundColor),
+            ) {
+                content()
+            }
         }
     }
 }

@@ -49,7 +49,9 @@ fun TextButtonCustom(
 ) {
     TextButton(
         onClick = onClick,
-        modifier = modifier,
+        modifier = modifier
+            .fillMaxWidth()
+            .height(50.dp),
     ) {
         Text(
             text = text,

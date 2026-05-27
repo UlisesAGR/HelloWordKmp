@@ -2,7 +2,7 @@
  * Color.kt
  * Copyright (c) 2026. All rights reserved
  */
-package com.hellowordkmp.mobile.presenter.theme
+package com.hellowordkmp.mobile.theme
 
 import androidx.compose.ui.graphics.Color
 
