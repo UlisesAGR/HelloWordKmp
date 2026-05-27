@@ -14,7 +14,6 @@ import com.hellowordkmp.mobile.presenter.components.SafeScreenContainer
 import com.hellowordkmp.mobile.presenter.components.SafeScreenContainerTest
 import com.hellowordkmp.mobile.presenter.home.viewmodel.HomeUiEvent
 import com.hellowordkmp.mobile.presenter.home.viewmodel.HomeViewModel
-import com.hellowordkmp.mobile.theme.AppTheme
 import hellowordkmp.shared.generated.resources.Res
 import hellowordkmp.shared.generated.resources.accept
 import hellowordkmp.shared.generated.resources.idle

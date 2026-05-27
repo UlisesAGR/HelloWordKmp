@@ -1,3 +1,7 @@
+/*
+ * Platform.ios.kt
+ * Copyright (c) 2026. All rights reserved
+ */
 package com.hellowordkmp.mobile.utils.device
 
 import platform.UIKit.UIDevice

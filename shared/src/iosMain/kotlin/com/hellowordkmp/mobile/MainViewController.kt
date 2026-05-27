@@ -1,3 +1,7 @@
+/*
+ * MainViewController.kt
+ * Copyright (c) 2026. All rights reserved
+ */
 package com.hellowordkmp.mobile
 
 import androidx.compose.ui.window.ComposeUIViewController
