@@ -35,9 +35,10 @@ import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun LoginScreen(
+    onBack: () -> Unit,
     onLoginSuccess: (String) -> Unit,
 ) {
-    var userText by remember { mutableStateOf("") }
+    var userName by remember { mutableStateOf("") }
 
     val focusManager = LocalFocusManager.current
 
@@ -51,9 +52,9 @@ fun LoginScreen(
             TextMediumCustom(text = stringResource(Res.string.login))
             Spacer(modifier = Modifier.height(Dimens.height16))
             TextFieldCustom(
-                value = userText,
+                value = userName,
                 onValueChange = { user ->
-                    userText = user
+                    userName = user
                 },
                 label = stringResource(Res.string.user_name),
                 placeholder = stringResource(Res.string.user_example),
@@ -65,7 +66,7 @@ fun LoginScreen(
                 text = stringResource(Res.string.login),
                 onClick = {
                     focusManager.clearFocus()
-                    if (userText.isNotBlank()) onLoginSuccess(userText)
+                    if (userName.isNotBlank()) onLoginSuccess(userName)
                 },
             )
         }
@@ -80,6 +81,7 @@ private fun LoginScreenPreview() {
     AppTheme {
         SafeScreenContainer {
             LoginScreen(
+                onBack = {},
                 onLoginSuccess = {},
             )
         }

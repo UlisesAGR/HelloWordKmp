@@ -8,7 +8,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.hellowordkmp.mobile.presenter.navigation.AppNavigation
+import com.hellowordkmp.mobile.presenter.navigation.base.BaseNavigation
 import com.hellowordkmp.mobile.theme.AndroidSystemUiController
 
 class AppActivity : ComponentActivity() {
@@ -25,7 +25,7 @@ class AppActivity : ComponentActivity() {
             ).apply {
                 setSystemBarsColor(darkIcons = false)
             }
-            AppNavigation()
+            BaseNavigation()
         }
     }
 }

@@ -29,7 +29,7 @@ import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun WelcomeScreen(
-    onNavigateToLogin: () -> Unit,
+    onNavigateToLogin: () -> Unit = {},
 ) {
     PermissionRequestEffect(permission = Permission.LOCATION)
     SafeScreenContainer {

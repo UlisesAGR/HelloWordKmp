@@ -52,6 +52,7 @@ kotlin {
             implementation(libs.bundles.koin.libs)
             implementation(libs.bundles.dev.moko.permissions.libs)
             implementation(libs.bundles.ktor.libs)
+            implementation(libs.bundles.voyager.libs)
         }
         // Android
         androidMain.dependencies {

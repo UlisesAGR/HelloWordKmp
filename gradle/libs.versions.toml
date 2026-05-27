@@ -26,6 +26,7 @@ lib-ktor = "3.5.0"
 lib-ktor-okhttp = "3.5.0"
 lib-ktor-darwin = "3.5.0"
 lib-serialization = "1.11.0"
+lib-voyager = "1.1.0-beta03"
 
 [libraries]
 
@@ -60,6 +61,12 @@ ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "lib
 koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel", version.ref = "lib-koin" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "lib-koin" }
 
+# voyager
+voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "lib-voyager" }
+voyager-screenmodel = { module = "cafe.adriel.voyager:voyager-screenmodel", version.ref = "lib-voyager" }
+voyager-transitions = { module = "cafe.adriel.voyager:voyager-transitions", version.ref = "lib-voyager" }
+voyager-tab-navigator = { module = "cafe.adriel.voyager:voyager-tab-navigator", version.ref = "lib-voyager" }
+
 # Moko Permissions
 dev-moko-permissions-compose = { module = "dev.icerock.moko:permissions-compose", version.ref = "lib-mokoPermissions-compose" }
 dev-moko-permissions-bluetooth = { module = 'dev.icerock.moko:permissions-bluetooth', version.ref = 'lib-mokoPermissions-compose' }
@@ -72,9 +79,8 @@ dev-moko-permissions-motion = { module = 'dev.icerock.moko:permissions-motion', 
 dev-moko-permissions-notifications = { module = 'dev.icerock.moko:permissions-notifications', version.ref = 'lib-mokoPermissions-compose' }
 dev-moko-permissions-storage = { module = 'dev.icerock.moko:permissions-storage', version.ref = 'lib-mokoPermissions-compose' }
 
-# Kotlin & Test
+# Test
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "lib-kotlin" }
-kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "lib-serialization" }
 junit = { module = "junit:junit", version.ref = "lib-junit" }
 
 [bundles]
@@ -98,6 +104,12 @@ ktor-libs = [
     'ktor-client-core',
     'ktor-client-content-negotiation',
     'ktor-serialization-kotlinx-json',
+]
+voyager-libs = [
+    'voyager-navigator',
+    'voyager-screenmodel',
+    'voyager-transitions',
+    'voyager-tab-navigator',
 ]
 
 [plugins]
