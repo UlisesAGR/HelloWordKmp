@@ -1,3 +1,7 @@
+/*
+ * AppModule.kt
+ * Copyright (c) 2026. All rights reserved
+ */
 package com.hellowordkmp.mobile.di
 
 import com.hellowordkmp.mobile.data.network.client.createHttpClient

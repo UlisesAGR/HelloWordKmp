@@ -1,3 +1,7 @@
+/*
+ * TextField.kt
+ * Copyright (c) 2026. All rights reserved
+ */
 package com.hellowordkmp.mobile.presenter.components
 
 import androidx.compose.foundation.layout.fillMaxWidth

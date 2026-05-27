@@ -51,9 +51,7 @@ kotlin {
             implementation(libs.androidx.navigation.compose)
             implementation(libs.bundles.koin.libs)
             implementation(libs.bundles.dev.moko.permissions.libs)
-            implementation(libs.bundles.coil.libs)
             implementation(libs.bundles.ktor.libs)
-            implementation(libs.bundles.coil.libs)
         }
         // Android
         androidMain.dependencies {
@@ -61,7 +59,6 @@ kotlin {
             implementation(libs.androidx.core.ktx)
             implementation(libs.androidx.appcompat)
             implementation(libs.ktor.client.okhttp)
-            implementation(libs.coil.network.okhttp)
         }
         // IOS
         iosMain.dependencies {

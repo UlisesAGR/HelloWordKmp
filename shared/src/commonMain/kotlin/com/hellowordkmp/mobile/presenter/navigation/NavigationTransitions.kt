@@ -1,3 +1,7 @@
+/*
+ * NavigationTransitions.kt
+ * Copyright (c) 2026. All rights reserved
+ */
 package com.hellowordkmp.mobile.presenter.navigation
 
 import androidx.compose.animation.core.tween

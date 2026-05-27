@@ -1,3 +1,7 @@
+/*
+ * Button.kt
+ * Copyright (c) 2026. All rights reserved
+ */
 package com.hellowordkmp.mobile.presenter.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -41,11 +45,11 @@ fun ButtonCustom(
 fun TextButtonCustom(
     text: String,
     onClick: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     TextButton(
         onClick = onClick,
-        modifier = modifier
+        modifier = modifier,
     ) {
         Text(
             text = text,

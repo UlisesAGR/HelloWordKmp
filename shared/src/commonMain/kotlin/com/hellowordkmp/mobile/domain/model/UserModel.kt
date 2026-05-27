@@ -1,3 +1,7 @@
+/*
+ * UserModel.kt
+ * Copyright (c) 2026. All rights reserved
+ */
 package com.hellowordkmp.mobile.domain.model
 
 data class UserModel(

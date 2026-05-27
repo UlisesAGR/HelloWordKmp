@@ -25,7 +25,6 @@ lib-koin = "4.2.1"
 lib-ktor = "3.5.0"
 lib-ktor-okhttp = "3.5.0"
 lib-ktor-darwin = "3.5.0"
-lib-coil3 = "3.4.0"
 lib-serialization = "1.11.0"
 
 [libraries]
@@ -73,10 +72,6 @@ dev-moko-permissions-motion = { module = 'dev.icerock.moko:permissions-motion', 
 dev-moko-permissions-notifications = { module = 'dev.icerock.moko:permissions-notifications', version.ref = 'lib-mokoPermissions-compose' }
 dev-moko-permissions-storage = { module = 'dev.icerock.moko:permissions-storage', version.ref = 'lib-mokoPermissions-compose' }
 
-# Coil
-coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "lib-coil3" }
-coil-network-okhttp = { module = "io.coil-kt.coil3:coil-network-okhttp", version.ref = "lib-coil3" }
-
 # Kotlin & Test
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "lib-kotlin" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "lib-serialization" }
@@ -103,10 +98,6 @@ ktor-libs = [
     'ktor-client-core',
     'ktor-client-content-negotiation',
     'ktor-serialization-kotlinx-json',
-]
-coil-libs = [
-    'coil-compose',
-    'coil-network-okhttp',
 ]
 
 [plugins]

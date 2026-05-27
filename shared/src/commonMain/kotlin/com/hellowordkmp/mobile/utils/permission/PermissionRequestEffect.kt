@@ -1,3 +1,7 @@
+/*
+ * PermissionRequestEffect.kt
+ * Copyright (c) 2026. All rights reserved
+ */
 package com.hellowordkmp.mobile.utils.permission
 
 import androidx.compose.runtime.Composable

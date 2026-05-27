@@ -1,3 +1,7 @@
+/*
+ * Dimens.kt
+ * Copyright (c) 2026. All rights reserved
+ */
 package com.hellowordkmp.mobile.utils.values
 
 import androidx.compose.ui.unit.dp
