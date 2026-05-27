@@ -18,7 +18,7 @@ data class HomeScreenInstance(val userName: String) : Screen {
         HomeScreen(
             username = userName,
             onLogout = {
-                navigator.popUntil { screen -> screen is WelcomeScreenInstance }
+                navigator.replaceAll(WelcomeScreenInstance)
             },
         )
     }
