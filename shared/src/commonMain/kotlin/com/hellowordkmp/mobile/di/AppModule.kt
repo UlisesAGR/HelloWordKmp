@@ -14,9 +14,11 @@ import com.hellowordkmp.mobile.presenter.home.viewmodel.HomeViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
+import org.koin.core.context.startKoin
 import org.koin.core.module.dsl.factoryOf
 import org.koin.core.module.dsl.singleOf
 import org.koin.core.module.dsl.viewModelOf
+import org.koin.dsl.KoinAppDeclaration
 import org.koin.dsl.bind
 import org.koin.dsl.module
 
@@ -42,4 +44,18 @@ val domainModule = module {
 
 val presentationModule = module {
     viewModelOf(::HomeViewModel)
+}
+
+fun initKoin(config: KoinAppDeclaration? = null) {
+    startKoin {
+        config?.invoke(this)
+        modules(
+            dispatcherModule,
+            networkModule,
+            dataModule,
+            repositoryModule,
+            domainModule,
+            presentationModule,
+        )
+    }
 }
