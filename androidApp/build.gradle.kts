@@ -39,7 +39,6 @@ dependencies {
     implementation(libs.bundles.koin.libs)
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.material)
-    implementation(libs.compose.material)
     implementation(libs.compose.material3)
     implementation(libs.androidx.splashscreen)
     implementation(libs.compose.uiToolingPreview)

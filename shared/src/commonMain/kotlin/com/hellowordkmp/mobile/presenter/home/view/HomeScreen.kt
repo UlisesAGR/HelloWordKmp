@@ -1,33 +1,23 @@
 /*
- * HomeViewModel.kt
+ * HomeScreen.kt
  * Copyright (c) 2026. All rights reserved
  */
 package com.hellowordkmp.mobile.presenter.home.view
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.hellowordkmp.mobile.presenter.components.ButtonCustom
+import com.hellowordkmp.mobile.presenter.components.ErrorDialogCustom
+import com.hellowordkmp.mobile.presenter.components.LoadingCustom
 import com.hellowordkmp.mobile.presenter.components.SafeScreenContainer
-import com.hellowordkmp.mobile.presenter.components.TextBigCustom
-import com.hellowordkmp.mobile.presenter.components.TextSmallCustom
+import com.hellowordkmp.mobile.presenter.home.viewmodel.HomeUiEvent
 import com.hellowordkmp.mobile.presenter.home.viewmodel.HomeViewModel
 import com.hellowordkmp.mobile.theme.AppTheme
-import com.hellowordkmp.mobile.utils.values.Dimens
 import hellowordkmp.shared.generated.resources.Res
-import hellowordkmp.shared.generated.resources.hello_user
-import hellowordkmp.shared.generated.resources.logout
-import hellowordkmp.shared.generated.resources.navigate_to_home_successful
+import hellowordkmp.shared.generated.resources.accept
+import hellowordkmp.shared.generated.resources.idle
+import hellowordkmp.shared.generated.resources.warning
 import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
 
@@ -37,27 +27,32 @@ fun HomeScreen(
     username: String,
     onLogout: () -> Unit,
 ) {
-    val users by viewModel.homeUiState.collectAsStateWithLifecycle()
-    LazyColumn {
-        items(users) { user ->
-//            UserItem(user)
-        }
-    }
+    val homeUiState by viewModel.homeUiState.collectAsStateWithLifecycle()
+    val homeUiEvent by viewModel.homeUiEvent.collectAsStateWithLifecycle()
+
     SafeScreenContainer {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(all = Dimens.padding16),
-            verticalArrangement = Arrangement.Center,
-        ) {
-            TextBigCustom(text = stringResource(Res.string.hello_user, username))
-            Spacer(modifier = Modifier.height(Dimens.padding8))
-            TextSmallCustom(text = stringResource(Res.string.navigate_to_home_successful))
-            Spacer(modifier = Modifier.height(Dimens.padding32))
-            ButtonCustom(
-                text = stringResource(Res.string.logout),
-                onClick = onLogout,
-            )
+
+        HomeContent(
+            username = username,
+            onLogout = onLogout,
+        )
+
+        if (homeUiState.isLoading) {
+            LoadingCustom()
+        }
+
+        when (homeUiEvent) {
+            is HomeUiEvent.Idle -> print(stringResource(Res.string.idle))
+            is HomeUiEvent.ShowError -> {
+                ErrorDialogCustom(
+                    title = stringResource(Res.string.warning),
+                    message = (homeUiEvent as HomeUiEvent.ShowError).exception,
+                    buttonText = stringResource(Res.string.accept),
+                    onDismiss = {
+                        viewModel.resetUiEvent()
+                    },
+                )
+            }
         }
     }
 }

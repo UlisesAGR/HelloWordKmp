@@ -2,6 +2,8 @@
 
     <string name="hello_user">¡Hola, %1$s!</string>
 
+    <string name="idle">Idle</string>
+
     <string name="welcome_app">¡Bienvenido a la App!</string>
     <string name="explore_our_multiplatform_platform">Explora nuestra plataforma multiplataforma</string>
     <string name="start">Comenzar</string>
@@ -12,5 +14,7 @@
     <string name="back">Volver atrás</string>
     <string name="logout">Cerrar Sesión</string>
     <string name="navigate_to_home_successful">Has navegado con éxito al Home</string>
+    <string name="accept">Accept</string>
+    <string name="warning">Warning</string>
 
 </resources>
