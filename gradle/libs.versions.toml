@@ -1,11 +1,12 @@
 # libs.versions.toml
 # Copyright (c) 2026. All rights reserved
 [versions]
+# versions
 android-compileSdk = "36"
 android-minSdk = "24"
 android-targetSdk = "36"
 
-lib-agp = "9.2.1"
+# Libraries
 lib-androidx-activity = "1.13.0"
 lib-androidx-appcompat = "1.7.1"
 lib-androidx-core = "1.18.0"
@@ -13,12 +14,10 @@ lib-lifecycle-viewmodel = "2.10.0"
 lib-lifecycle-viewmodel-compose = "2.10.0"
 lifecycle-runtime-compose = "2.10.0"
 lib-androidx-navigation = "2.9.2"
-lib-composeMultiplatform = "1.11.0"
 lib-ui-tooling = "1.11.0"
 lib-compose-material3 = "1.9.0"
 lib-mokoPermissions-compose = "0.20.1"
 lib-junit = "4.13.2"
-lib-kotlin = "2.3.21"
 lib-material = "1.14.0"
 lib-splashscreen = "1.2.0"
 lib-koin = "4.2.1"
@@ -27,9 +26,18 @@ lib-ktor-okhttp = "3.5.0"
 lib-ktor-darwin = "3.5.0"
 lib-serialization = "1.11.0"
 lib-voyager = "1.1.0-beta03"
+lib-sqlite = "2.6.2"
+# Plugins
+lib-agp = "9.2.1"
+lib-composeMultiplatform = "1.11.0"
+lib-kotlin = "2.3.21"
+lib-room = "2.8.4"
+lib-ksp = "2.3.5"
+# Test
+junit = "1.3.0"
+espressoCore = "3.7.0"
 
 [libraries]
-
 # AndroidX
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "lib-androidx-core" }
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "lib-androidx-appcompat" }
@@ -61,11 +69,17 @@ ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "lib
 koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel", version.ref = "lib-koin" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "lib-koin" }
 
-# voyager
+# Voyager
 voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "lib-voyager" }
 voyager-screenmodel = { module = "cafe.adriel.voyager:voyager-screenmodel", version.ref = "lib-voyager" }
 voyager-transitions = { module = "cafe.adriel.voyager:voyager-transitions", version.ref = "lib-voyager" }
 voyager-tab-navigator = { module = "cafe.adriel.voyager:voyager-tab-navigator", version.ref = "lib-voyager" }
+
+# Room
+androidx-sqlite-bundled = { module = "androidx.sqlite:sqlite-bundled", version.ref = "lib-sqlite" }
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "lib-room" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "lib-room" }
+androidx-room-sqlite-wrapper = { module = "androidx.room:room-sqlite-wrapper", version.ref = "lib-room" }
 
 # Moko Permissions
 dev-moko-permissions-compose = { module = "dev.icerock.moko:permissions-compose", version.ref = "lib-mokoPermissions-compose" }
@@ -82,6 +96,8 @@ dev-moko-permissions-storage = { module = 'dev.icerock.moko:permissions-storage'
 # Test
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "lib-kotlin" }
 junit = { module = "junit:junit", version.ref = "lib-junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junit" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 
 [bundles]
 koin-libs = [
@@ -120,3 +136,5 @@ composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "l
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "lib-kotlin" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "lib-kotlin" }
 kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "lib-kotlin" }
+androidx-room = { id = "androidx.room", version.ref = "lib-room" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "lib-ksp" }

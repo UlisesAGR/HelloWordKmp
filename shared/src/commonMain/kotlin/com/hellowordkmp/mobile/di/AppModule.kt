@@ -4,10 +4,16 @@
  */
 package com.hellowordkmp.mobile.di
 
+import androidx.room.RoomDatabase
+import androidx.sqlite.driver.bundled.BundledSQLiteDriver
+import com.hellowordkmp.mobile.data.local.database.AppDatabase
+import com.hellowordkmp.mobile.data.local.database.getDatabaseBuilder
+import com.hellowordkmp.mobile.data.local.datasource.UsersLocalDataSource
+import com.hellowordkmp.mobile.data.local.datasource.UsersLocalDataSourceImpl
 import com.hellowordkmp.mobile.data.network.client.createHttpClient
 import com.hellowordkmp.mobile.data.network.datasource.UserRemoteDataSource
 import com.hellowordkmp.mobile.data.network.datasource.UserRemoteDataSourceImpl
-import com.hellowordkmp.mobile.data.network.repository.UserRepositoryImpl
+import com.hellowordkmp.mobile.data.repository.UserRepositoryImpl
 import com.hellowordkmp.mobile.domain.repository.UserRepository
 import com.hellowordkmp.mobile.domain.usecase.GetUsersUseCase
 import com.hellowordkmp.mobile.presenter.home.viewmodel.HomeViewModel
@@ -26,12 +32,26 @@ val dispatcherModule = module {
     single<CoroutineDispatcher> { Dispatchers.IO }
 }
 
+val databaseModule = module {
+    single<RoomDatabase.Builder<AppDatabase>> { getDatabaseBuilder() }
+
+    single<AppDatabase> {
+        get<RoomDatabase.Builder<AppDatabase>>()
+            .setDriver(BundledSQLiteDriver())
+            .setQueryCoroutineContext(Dispatchers.IO)
+            .build()
+    }
+
+    single { get<AppDatabase>().usersDao() }
+}
+
 val networkModule = module {
     single { createHttpClient() }
 }
 
 val dataModule = module {
     singleOf(::UserRemoteDataSourceImpl) bind UserRemoteDataSource::class
+    singleOf(::UsersLocalDataSourceImpl) bind UsersLocalDataSource::class
 }
 
 val repositoryModule = module {
@@ -51,6 +71,7 @@ fun initKoin(config: KoinAppDeclaration? = null) {
         config?.invoke(this)
         modules(
             dispatcherModule,
+            databaseModule,
             networkModule,
             dataModule,
             repositoryModule,

@@ -6,16 +6,20 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.kotlinx.serialization)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.androidx.room)
 }
 
 kotlin {
     listOf(
+        iosX64(),
         iosArm64(),
         iosSimulatorArm64(),
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
             baseName = "Shared"
             isStatic = true
+            linkerOpts.add("-lsqlite3")
         }
     }
 
@@ -53,6 +57,8 @@ kotlin {
             implementation(libs.bundles.dev.moko.permissions.libs)
             implementation(libs.bundles.ktor.libs)
             implementation(libs.bundles.voyager.libs)
+            implementation(libs.androidx.room.runtime)
+            implementation(libs.androidx.sqlite.bundled)
         }
         // Android
         androidMain.dependencies {
@@ -60,6 +66,7 @@ kotlin {
             implementation(libs.androidx.core.ktx)
             implementation(libs.androidx.appcompat)
             implementation(libs.ktor.client.okhttp)
+            implementation(libs.androidx.room.sqlite.wrapper)
         }
         // IOS
         iosMain.dependencies {
@@ -73,5 +80,10 @@ kotlin {
 }
 
 dependencies {
+    ksp(libs.androidx.room.compiler)
     androidRuntimeClasspath(libs.compose.uiTooling)
+}
+
+room {
+    schemaDirectory("$projectDir/schemas")
 }
