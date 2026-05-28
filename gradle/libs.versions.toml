@@ -27,6 +27,7 @@ lib-ktor-darwin = "3.5.0"
 lib-serialization = "1.11.0"
 lib-voyager = "1.1.0-beta03"
 lib-sqlite = "2.6.2"
+lib-datastore = "1.2.1"
 # Plugins
 lib-agp = "9.2.1"
 lib-composeMultiplatform = "1.11.0"
@@ -60,6 +61,8 @@ compose-uiToolingPreview = { module = "org.jetbrains.compose.ui:ui-tooling-previ
 
 # Ktor
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "lib-ktor" }
+ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "lib-ktor" }
+ktor-client-encoding = { module = "io.ktor:ktor-client-encoding", version.ref = "lib-ktor" }
 ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "lib-ktor" }
 ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "lib-ktor" }
 ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "lib-ktor-okhttp" }
@@ -80,6 +83,9 @@ androidx-sqlite-bundled = { module = "androidx.sqlite:sqlite-bundled", version.r
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "lib-room" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "lib-room" }
 androidx-room-sqlite-wrapper = { module = "androidx.room:room-sqlite-wrapper", version.ref = "lib-room" }
+
+# Data store
+androidx-datastore = { module = "androidx.datastore:datastore-preferences", version.ref = "lib-datastore" }
 
 # Moko Permissions
 dev-moko-permissions-compose = { module = "dev.icerock.moko:permissions-compose", version.ref = "lib-mokoPermissions-compose" }
@@ -118,6 +124,8 @@ dev-moko-permissions-libs = [
 ]
 ktor-libs = [
     'ktor-client-core',
+    'ktor-client-logging',
+    'ktor-client-encoding',
     'ktor-client-content-negotiation',
     'ktor-serialization-kotlinx-json',
 ]

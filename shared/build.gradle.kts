@@ -30,6 +30,7 @@ kotlin {
 
         compilerOptions {
             jvmTarget = JvmTarget.JVM_11
+            jvmTarget.set(JvmTarget.JVM_11)
         }
         androidResources {
             enable = true
@@ -59,6 +60,7 @@ kotlin {
             implementation(libs.bundles.voyager.libs)
             implementation(libs.androidx.room.runtime)
             implementation(libs.androidx.sqlite.bundled)
+            implementation(libs.androidx.datastore)
         }
         // Android
         androidMain.dependencies {

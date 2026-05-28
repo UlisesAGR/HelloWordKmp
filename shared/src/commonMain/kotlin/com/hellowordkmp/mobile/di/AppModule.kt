@@ -4,12 +4,16 @@
  */
 package com.hellowordkmp.mobile.di
 
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
 import androidx.room.RoomDatabase
 import androidx.sqlite.driver.bundled.BundledSQLiteDriver
 import com.hellowordkmp.mobile.data.local.database.AppDatabase
 import com.hellowordkmp.mobile.data.local.database.getDatabaseBuilder
 import com.hellowordkmp.mobile.data.local.datasource.UsersLocalDataSource
 import com.hellowordkmp.mobile.data.local.datasource.UsersLocalDataSourceImpl
+import com.hellowordkmp.mobile.data.local.datastore.AppDataStore
+import com.hellowordkmp.mobile.data.local.datastore.createDataStore
 import com.hellowordkmp.mobile.data.network.client.createHttpClient
 import com.hellowordkmp.mobile.data.network.datasource.UserRemoteDataSource
 import com.hellowordkmp.mobile.data.network.datasource.UserRemoteDataSourceImpl
@@ -30,6 +34,11 @@ import org.koin.dsl.module
 
 val dispatcherModule = module {
     single<CoroutineDispatcher> { Dispatchers.IO }
+}
+
+val dataStoreModule = module {
+    single<DataStore<Preferences>> { createDataStore() }
+    singleOf(::AppDataStore)
 }
 
 val databaseModule = module {
@@ -71,6 +80,7 @@ fun initKoin(config: KoinAppDeclaration? = null) {
         config?.invoke(this)
         modules(
             dispatcherModule,
+            dataStoreModule,
             databaseModule,
             networkModule,
             dataModule,

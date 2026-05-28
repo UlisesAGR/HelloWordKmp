@@ -5,7 +5,6 @@
 package com.hellowordkmp.mobile.data.repository
 
 import com.hellowordkmp.mobile.data.local.datasource.UsersLocalDataSource
-import com.hellowordkmp.mobile.data.local.model.UsersEntity
 import com.hellowordkmp.mobile.data.network.datasource.UserRemoteDataSource
 import com.hellowordkmp.mobile.domain.model.UserModel
 import com.hellowordkmp.mobile.domain.repository.UserRepository
@@ -26,6 +25,14 @@ class UserRepositoryImpl(
     }.flowOn(ioDispatcher)
 
     // Local
-    override suspend fun insertUser(user: UsersEntity): Long =
-        usersLocalDataSource.insertUser(user = user)
+    override suspend fun insertUser(user: UserModel): Flow<Long> = flow {
+        emit(usersLocalDataSource.insertUser(user = user))
+    }.flowOn(ioDispatcher)
+
+    override suspend fun getUserToken(): Flow<String?> =
+        usersLocalDataSource.getUserToken()
+
+    override suspend fun saveUserToken(token: String): Flow<Unit> = flow {
+        emit(usersLocalDataSource.saveUserToken(token = token))
+    }.flowOn(ioDispatcher)
 }

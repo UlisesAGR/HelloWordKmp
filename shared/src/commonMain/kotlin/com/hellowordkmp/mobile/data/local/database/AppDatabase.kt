@@ -7,13 +7,13 @@ package com.hellowordkmp.mobile.data.local.database
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import com.hellowordkmp.mobile.data.local.dao.UsersDao
-import com.hellowordkmp.mobile.data.local.model.UsersEntity
+import com.hellowordkmp.mobile.data.local.model.UserEntity
 
 expect fun getDatabaseBuilder(): RoomDatabase.Builder<AppDatabase>
 
 @Database(
     entities = [
-        UsersEntity::class,
+        UserEntity::class,
     ],
     version = 1,
     exportSchema = false,

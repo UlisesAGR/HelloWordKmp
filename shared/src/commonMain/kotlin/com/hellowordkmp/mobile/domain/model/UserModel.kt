@@ -1,5 +1,5 @@
 /*
- * UsersEntity.kt
+ * UserEntity.kt
  * Copyright (c) 2026. All rights reserved
  */
 package com.hellowordkmp.mobile.domain.model
@@ -7,5 +7,5 @@ package com.hellowordkmp.mobile.domain.model
 data class UserModel(
     val id: Int,
     val name: String,
-    val imageUrl: String,
+    val email: String,
 )

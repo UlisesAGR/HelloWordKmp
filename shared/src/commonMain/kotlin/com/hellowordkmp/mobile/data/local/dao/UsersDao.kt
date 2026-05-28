@@ -9,21 +9,20 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.hellowordkmp.mobile.data.local.model.UsersEntity
-import kotlinx.coroutines.flow.Flow
+import com.hellowordkmp.mobile.data.local.model.UserEntity
 
 @Dao
 interface UsersDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertUser(user: UsersEntity): Long
+    suspend fun insertUser(user: UserEntity): Long
 
     @Query("SELECT * FROM users")
-    fun getAllUsers(): Flow<List<UsersEntity>>
+    fun getAllUsers(): List<UserEntity>
 
     @Query("SELECT * FROM users WHERE id = :id")
-    suspend fun getUserById(id: Int): UsersEntity?
+    suspend fun getUserById(id: Int): UserEntity?
 
     @Delete
-    suspend fun deleteUser(user: UsersEntity)
+    suspend fun deleteUser(user: UserEntity)
 }
