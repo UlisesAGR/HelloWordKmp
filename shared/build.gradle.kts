@@ -12,9 +12,8 @@ plugins {
 
 kotlin {
     listOf(
-        iosX64(),
         iosArm64(),
-        iosSimulatorArm64(),
+        iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
             baseName = "Shared"
@@ -30,7 +29,6 @@ kotlin {
 
         compilerOptions {
             jvmTarget = JvmTarget.JVM_11
-            jvmTarget.set(JvmTarget.JVM_11)
         }
         androidResources {
             enable = true
