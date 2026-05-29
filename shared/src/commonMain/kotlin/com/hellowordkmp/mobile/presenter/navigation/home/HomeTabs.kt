@@ -9,10 +9,13 @@ import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
+import cafe.adriel.voyager.navigator.LocalNavigator
+import cafe.adriel.voyager.navigator.currentOrThrow
 import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions
 import com.hellowordkmp.mobile.presenter.home.list.view.ListScreen
 import com.hellowordkmp.mobile.presenter.home.profile.view.ProfileScreen
+import com.hellowordkmp.mobile.presenter.navigation.login.WelcomeScreenInstance
 import hellowordkmp.shared.generated.resources.Res
 import hellowordkmp.shared.generated.resources.list
 import hellowordkmp.shared.generated.resources.profile
@@ -31,7 +34,7 @@ object ListTab : Tab {
     }
 }
 
-class ProfileTab(val onLogout: () -> Unit = {}) : Tab {
+object ProfileTab : Tab {
     override val options: TabOptions
         @Composable get() = TabOptions(
             index = 1u,
@@ -40,8 +43,12 @@ class ProfileTab(val onLogout: () -> Unit = {}) : Tab {
         )
     @Composable
     override fun Content() {
+        val navigator = LocalNavigator.currentOrThrow
+        val parentNavigator = navigator.parent
         ProfileScreen(
-            onLogout = onLogout,
+            onLogout = {
+                parentNavigator?.replaceAll(WelcomeScreenInstance)
+            }
         )
     }
 }

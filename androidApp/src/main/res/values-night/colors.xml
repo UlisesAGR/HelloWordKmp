@@ -4,7 +4,7 @@
 -->
 <resources>
     <!-- Light primary colors -->
-    <color name="md_theme_primary">#FF6291</color>
+    <color name="md_theme_primary">#6DBCFF</color>
     <color name="md_theme_onPrimary">#00513F</color>
     <color name="md_theme_primaryContainer">#009473</color>
     <color name="md_theme_onPrimaryContainer">#A3F1D6</color>

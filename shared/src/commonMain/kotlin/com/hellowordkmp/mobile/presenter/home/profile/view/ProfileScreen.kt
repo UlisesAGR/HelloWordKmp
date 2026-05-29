@@ -55,7 +55,7 @@ fun ProfileScreen(
                 buttonTextDismiss = stringResource(Res.string.cancel),
                 onConfirm = {
                     openUrl(
-                        url = "www.google.com",
+                        url = "https://www.google.com",
                         onSuccess = {
                             viewModel.resetUiEvent()
                         },
