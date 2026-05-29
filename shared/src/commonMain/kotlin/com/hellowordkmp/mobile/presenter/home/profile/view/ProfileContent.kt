@@ -19,13 +19,15 @@ import com.hellowordkmp.mobile.presenter.components.SafeScreenContainer
 import com.hellowordkmp.mobile.utils.values.Dimens
 import hellowordkmp.shared.generated.resources.Res
 import hellowordkmp.shared.generated.resources.logout
-import hellowordkmp.shared.generated.resources.open_web
+import hellowordkmp.shared.generated.resources.open_browser
+import hellowordkmp.shared.generated.resources.open_web_view
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun ProfileContent(
-    onLogout: () -> Unit = {},
+    openWebview: () -> Unit = {},
     onShowDialog: () -> Unit = {},
+    onLogout: () -> Unit = {},
 ) {
     Column(
         modifier = Modifier
@@ -34,13 +36,18 @@ fun ProfileContent(
         verticalArrangement = Arrangement.Center,
     ) {
         ButtonPrimaryCustom(
-            text = stringResource(Res.string.logout),
-            onClick = onLogout,
+            text = stringResource(Res.string.open_web_view),
+            onClick = openWebview,
         )
         Spacer(modifier = Modifier.height(Dimens.padding32))
         ButtonSecondaryCustom(
-            text = stringResource(Res.string.open_web),
+            text = stringResource(Res.string.open_browser),
             onClick = onShowDialog,
+        )
+        Spacer(modifier = Modifier.height(Dimens.padding32))
+        ButtonPrimaryCustom(
+            text = stringResource(Res.string.logout),
+            onClick = onLogout,
         )
     }
 }

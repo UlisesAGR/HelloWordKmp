@@ -28,6 +28,7 @@ lib-serialization = "1.11.0"
 lib-voyager = "1.1.0-beta03"
 lib-sqlite = "2.6.2"
 lib-datastore = "1.2.1"
+lib-compose-webview = "2.0.3"
 # Plugins
 lib-agp = "9.2.1"
 lib-composeMultiplatform = "1.11.0"
@@ -86,6 +87,9 @@ androidx-room-sqlite-wrapper = { module = "androidx.room:room-sqlite-wrapper", v
 
 # Data store
 androidx-datastore = { module = "androidx.datastore:datastore-preferences", version.ref = "lib-datastore" }
+
+# Webview
+compose-webview = { module = "io.github.kevinnzou:compose-webview-multiplatform", version.ref = "lib-compose-webview" }
 
 # Moko Permissions
 dev-moko-permissions-compose = { module = "dev.icerock.moko:permissions-compose", version.ref = "lib-mokoPermissions-compose" }

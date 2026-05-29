@@ -16,14 +16,18 @@
     <string name="user">Usuario</string>
     <string name="back">Volver atrás</string>
     <string name="logout">Cerrar Sesión</string>
-    <string name="open_web">Open web</string>
+    <string name="open_browser">Open Browser</string>
     <string name="navigate_to_home_successful">Has navegado con éxito al Home</string>
     <string name="accept">Accept</string>
+    <string name="icon">Icon</string>
     <string name="warning">Warning</string>
     <string name="info">Info</string>
     <string name="you_will_exit_the_application">You will exit the application</string>
     <string name="cancel">Cancel</string>
     <string name="error_try_open_navigator_web">Error try open navigator web</string>
+    <string name="open_web_view">Open webview</string>
+    <string name="web_view">Webview</string>
+    <string name="error_load_webview">Error load webview</string>
 
     <!-- Botton navigation -->
     <string name="list">List</string>

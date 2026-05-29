@@ -1,5 +1,5 @@
 /*
- * HomeContainerScreen.kt
+ * HomeScreenWithTabs.kt
  * Copyright (c) 2026. All rights reserved
  */
 package com.hellowordkmp.mobile.presenter.home.container
@@ -25,7 +25,9 @@ fun HomeScreenWithTabs() {
         TabNavigator(tab = ListTab) { tabNavigator ->
             Scaffold(
                 topBar = {
-                    ToolbarCustom(title = tabNavigator.current.options.title)
+                    ToolbarCustom(
+                        title = tabNavigator.current.options.title,
+                    )
                 },
                 content = { padding ->
                     Box(

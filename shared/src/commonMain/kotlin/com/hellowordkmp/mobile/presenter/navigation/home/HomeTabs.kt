@@ -46,9 +46,12 @@ object ProfileTab : Tab {
         val navigator = LocalNavigator.currentOrThrow
         val parentNavigator = navigator.parent
         ProfileScreen(
+            openWebview = {
+                parentNavigator?.push(WebviewScreenInstance)
+            },
             onLogout = {
                 parentNavigator?.replaceAll(WelcomeScreenInstance)
-            }
+            },
         )
     }
 }

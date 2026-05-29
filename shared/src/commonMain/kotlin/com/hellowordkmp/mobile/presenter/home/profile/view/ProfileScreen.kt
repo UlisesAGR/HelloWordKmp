@@ -29,23 +29,27 @@ import org.koin.compose.viewmodel.koinViewModel
 @Composable
 fun ProfileScreen(
     viewModel: ProfileViewModel = koinViewModel(),
+    openWebview: () -> Unit = {},
     onLogout: () -> Unit = {},
 ) {
-    val homeUiState by viewModel.profileUiState.collectAsStateWithLifecycle()
-    val homeUiEvent by viewModel.profileUiEvent.collectAsStateWithLifecycle()
+    val profileUiState by viewModel.profileUiState.collectAsStateWithLifecycle()
+    val profileUiEvent by viewModel.profileUiEvent.collectAsStateWithLifecycle()
 
     ProfileContent(
-        onLogout = onLogout,
+        openWebview = {
+            openWebview()
+        },
         onShowDialog = {
             viewModel.showInfoDialog()
         },
+        onLogout = onLogout,
     )
 
-    if (homeUiState.isLoading) {
+    if (profileUiState.isLoading) {
         LoadingCustom()
     }
 
-    when (homeUiEvent) {
+    when (profileUiEvent) {
         is ProfileUiEvent.Idle -> print(stringResource(Res.string.idle))
         is ProfileUiEvent.ShowInfoDialog -> {
             DialogCustom(
@@ -56,12 +60,8 @@ fun ProfileScreen(
                 onConfirm = {
                     openUrl(
                         url = "https://www.google.com",
-                        onSuccess = {
-                            viewModel.resetUiEvent()
-                        },
-                        onError = {
-                            viewModel.showErrorDialog()
-                        },
+                        onSuccess = { viewModel.resetUiEvent() },
+                        onError = { viewModel.showErrorDialog() },
                     )
                 },
                 onDismiss = {

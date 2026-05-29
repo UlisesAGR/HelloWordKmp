@@ -59,6 +59,7 @@ kotlin {
             implementation(libs.androidx.room.runtime)
             implementation(libs.androidx.sqlite.bundled)
             implementation(libs.androidx.datastore)
+            implementation(libs.compose.webview)
         }
         // Android
         androidMain.dependencies {
