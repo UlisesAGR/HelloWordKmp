@@ -1,5 +1,5 @@
 /*
- * Database.ios.kt
+ * AppDatabase.ios.kt
  * Copyright (c) 2026. All rights reserved
  */
 package com.hellowordkmp.mobile.data.local.database
@@ -11,11 +11,10 @@ import platform.Foundation.NSDocumentDirectory
 import platform.Foundation.NSFileManager
 import platform.Foundation.NSUserDomainMask
 
-actual fun getDatabaseBuilder(): RoomDatabase.Builder<AppDatabase> {
-    val dbFilePath = documentDirectory() + "/${AppDatabase.DATABASE_NAME}"
+actual fun getDatabaseBuilder() : RoomDatabase.Builder<AppDatabase>{
     return Room.databaseBuilder<AppDatabase>(
-        name = dbFilePath,
-    )
+        name = documentDirectory() + "/${AppDatabase.DATABASE_NAME}",
+    ).setDriver(androidx.sqlite.driver.bundled.BundledSQLiteDriver())
 }
 
 @OptIn(ExperimentalForeignApi::class)

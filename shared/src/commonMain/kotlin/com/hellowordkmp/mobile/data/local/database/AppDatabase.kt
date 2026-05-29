@@ -4,12 +4,11 @@
  */
 package com.hellowordkmp.mobile.data.local.database
 
+import androidx.room.ConstructedBy
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import com.hellowordkmp.mobile.data.local.dao.UsersDao
 import com.hellowordkmp.mobile.data.local.model.UserEntity
-
-expect fun getDatabaseBuilder(): RoomDatabase.Builder<AppDatabase>
 
 @Database(
     entities = [
@@ -18,18 +17,14 @@ expect fun getDatabaseBuilder(): RoomDatabase.Builder<AppDatabase>
     version = 1,
     exportSchema = false,
 )
+@ConstructedBy(AppDatabaseConstructor::class)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun usersDao(): UsersDao
 
     companion object {
         const val DATABASE_NAME = "hellowordkmp_database.db"
-        // Migrations
-//        val MIGRATION_1_2: Migration = object : Migration(1,2) {
-//            override fun migrate(connection: SQLiteConnection) {
-//                super.migrate(connection)
-//                connection.execSQL("CREATE TABLE users_admin")
-//            }
-//        }
     }
 }
+
+expect fun getDatabaseBuilder(): RoomDatabase.Builder<AppDatabase>

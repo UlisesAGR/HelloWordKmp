@@ -6,8 +6,7 @@ package com.hellowordkmp.mobile.di
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
-import androidx.room.RoomDatabase
-import androidx.sqlite.driver.bundled.BundledSQLiteDriver
+import com.hellowordkmp.mobile.data.local.dao.UsersDao
 import com.hellowordkmp.mobile.data.local.database.AppDatabase
 import com.hellowordkmp.mobile.data.local.database.getDatabaseBuilder
 import com.hellowordkmp.mobile.data.local.datasource.UsersLocalDataSource
@@ -42,16 +41,12 @@ val dataStoreModule = module {
 }
 
 val databaseModule = module {
-    single<RoomDatabase.Builder<AppDatabase>> { getDatabaseBuilder() }
-
     single<AppDatabase> {
-        get<RoomDatabase.Builder<AppDatabase>>()
-            .setDriver(BundledSQLiteDriver())
+        getDatabaseBuilder()
             .setQueryCoroutineContext(Dispatchers.IO)
             .build()
     }
-
-    single { get<AppDatabase>().usersDao() }
+    single<UsersDao> { get<AppDatabase>().usersDao() }
 }
 
 val networkModule = module {

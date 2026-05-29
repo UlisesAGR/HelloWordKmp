@@ -18,7 +18,7 @@ interface UsersDao {
     suspend fun insertUser(user: UserEntity): Long
 
     @Query("SELECT * FROM users")
-    fun getAllUsers(): List<UserEntity>
+    suspend fun getAllUsers(): List<UserEntity>
 
     @Query("SELECT * FROM users WHERE id = :id")
     suspend fun getUserById(id: Int): UserEntity?

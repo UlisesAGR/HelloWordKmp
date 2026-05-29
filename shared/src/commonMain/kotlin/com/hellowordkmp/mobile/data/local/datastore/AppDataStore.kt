@@ -14,8 +14,6 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
 import kotlinx.io.IOException
 
-expect fun createDataStore(): DataStore<Preferences>
-
 class AppDataStore(private val dataStore: DataStore<Preferences>) {
 
     companion object  {
@@ -35,3 +33,5 @@ class AppDataStore(private val dataStore: DataStore<Preferences>) {
         dataStore.edit { data -> data[Keys.USER_TOKEN] = token }
     }
 }
+
+expect fun createDataStore(): DataStore<Preferences>
