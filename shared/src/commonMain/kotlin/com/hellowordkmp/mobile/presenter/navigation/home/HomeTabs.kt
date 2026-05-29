@@ -1,5 +1,5 @@
 /*
- * HomeTab.kt
+ * HomeTabs.kt
  * Copyright (c) 2026. All rights reserved
  */
 package com.hellowordkmp.mobile.presenter.navigation.home
@@ -12,15 +12,13 @@ import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions
 import com.hellowordkmp.mobile.presenter.home.list.view.ListScreen
-import com.hellowordkmp.mobile.presenter.home.profile.ProfileScreen
+import com.hellowordkmp.mobile.presenter.home.profile.view.ProfileScreen
 import hellowordkmp.shared.generated.resources.Res
 import hellowordkmp.shared.generated.resources.list
 import hellowordkmp.shared.generated.resources.profile
 import org.jetbrains.compose.resources.stringResource
 
-data class ListTab(
-    val userName: String = "",
-) : Tab {
+object ListTab : Tab {
     override val options: TabOptions
         @Composable get() = TabOptions(
             index = 0u,
@@ -29,15 +27,11 @@ data class ListTab(
         )
     @Composable
     override fun Content() {
-        ListScreen(
-            username = userName,
-        )
+        ListScreen()
     }
 }
 
-data class ProfileTab(
-    val onLogout: () -> Unit = {},
-) : Tab {
+class ProfileTab(val onLogout: () -> Unit = {}) : Tab {
     override val options: TabOptions
         @Composable get() = TabOptions(
             index = 1u,

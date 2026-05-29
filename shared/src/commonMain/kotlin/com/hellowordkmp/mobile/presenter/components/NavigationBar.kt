@@ -16,7 +16,7 @@ import cafe.adriel.voyager.navigator.tab.Tab
 fun RowScope.TabNavigationItem(tab: Tab) {
     val tabNavigator = LocalTabNavigator.current
     NavigationBarItem(
-        selected = tabNavigator.current == tab,
+        selected = tabNavigator.current.key == tab.key,
         onClick = { tabNavigator.current = tab },
         label = { Text(tab.options.title) },
         icon = {

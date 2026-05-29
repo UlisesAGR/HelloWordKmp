@@ -12,7 +12,7 @@ import com.hellowordkmp.mobile.presenter.components.SafeScreenContainerTest
 @Composable
 fun LoginScreen(
     onBack: () -> Unit = {},
-    onLoginSuccess: (String) -> Unit = {},
+    onLoginSuccess: () -> Unit = {},
 ) {
     SafeScreenContainer {
         LoginContainer(

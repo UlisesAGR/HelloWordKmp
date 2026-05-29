@@ -23,13 +23,12 @@ import org.koin.compose.viewmodel.koinViewModel
 @Composable
 fun ListScreen(
     viewModel: ListViewModel = koinViewModel(),
-    username: String = "",
 ) {
     val homeUiState by viewModel.listUiState.collectAsStateWithLifecycle()
     val homeUiEvent by viewModel.listUiEvent.collectAsStateWithLifecycle()
 
     ListContent(
-        username = username,
+        username = "Ulises",
     )
 
     if (homeUiState.isLoading) {
@@ -38,12 +37,12 @@ fun ListScreen(
 
     when (homeUiEvent) {
         is HomeUiEvent.Idle -> print(stringResource(Res.string.idle))
-        is HomeUiEvent.ShowError -> {
+        is HomeUiEvent.ShowErrorDialog -> {
             ErrorDialogCustom(
                 title = stringResource(Res.string.warning),
-                message = (homeUiEvent as HomeUiEvent.ShowError).exception,
+                message = (homeUiEvent as HomeUiEvent.ShowErrorDialog).exception,
                 buttonText = stringResource(Res.string.accept),
-                onDismiss = {
+                onConfirm = {
                     viewModel.resetUiEvent()
                 },
             )

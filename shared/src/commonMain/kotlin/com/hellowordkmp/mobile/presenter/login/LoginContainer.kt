@@ -20,7 +20,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.tooling.preview.Preview
-import com.hellowordkmp.mobile.presenter.components.ButtonCustom
+import com.hellowordkmp.mobile.presenter.components.ButtonPrimaryCustom
 import com.hellowordkmp.mobile.presenter.components.SafeScreenContainerTest
 import com.hellowordkmp.mobile.presenter.components.TextButtonCustom
 import com.hellowordkmp.mobile.presenter.components.TextFieldCustom
@@ -36,7 +36,7 @@ import org.jetbrains.compose.resources.stringResource
 @Composable
 fun LoginContainer(
     onBack: () -> Unit = {},
-    onLoginSuccess: (String) -> Unit = {},
+    onLoginSuccess: () -> Unit = {},
 ) {
     var userName by remember { mutableStateOf("") }
 
@@ -61,11 +61,11 @@ fun LoginContainer(
             contentDescription = stringResource(Res.string.user),
         )
         Spacer(modifier = Modifier.height(Dimens.height16))
-        ButtonCustom(
+        ButtonPrimaryCustom(
             text = stringResource(Res.string.login),
             onClick = {
                 focusManager.clearFocus()
-                if (userName.isNotBlank()) onLoginSuccess(userName)
+                if (userName.isNotBlank()) onLoginSuccess()
             },
         )
         Spacer(modifier = Modifier.height(Dimens.height8))

@@ -9,21 +9,49 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 
 @Composable
-fun ErrorDialogCustom(
+fun DialogCustom(
     title: String,
-    message: Throwable?,
-    buttonText: String,
-    onDismiss: () -> Unit
+    message: String,
+    buttonTextConfirm: String,
+    buttonTextDismiss: String,
+    onConfirm: () -> Unit = {},
+    onDismiss: () -> Unit = {},
 ) {
     AlertDialog(
-        onDismissRequest = onDismiss,
+        onDismissRequest = {},
         title = { Text(text = title) },
-        text = { Text(text = message?.message.toString()) },
+        text = { Text(text = message) },
         confirmButton = {
-            ButtonCustom(
-                text = buttonText,
+            ButtonPrimaryCustom(
+                text = buttonTextConfirm,
+                onClick = onConfirm,
+            )
+        },
+        dismissButton = {
+            ButtonSecondaryCustom(
+                text = buttonTextDismiss,
                 onClick = onDismiss,
             )
-        }
+        },
+    )
+}
+
+@Composable
+fun ErrorDialogCustom(
+    title: String,
+    message: String,
+    buttonText: String,
+    onConfirm: () -> Unit = {},
+) {
+    AlertDialog(
+        onDismissRequest = {},
+        title = { Text(text = title) },
+        text = { Text(text = message) },
+        confirmButton = {
+            ButtonPrimaryCustom(
+                text = buttonText,
+                onClick = onConfirm,
+            )
+        },
     )
 }

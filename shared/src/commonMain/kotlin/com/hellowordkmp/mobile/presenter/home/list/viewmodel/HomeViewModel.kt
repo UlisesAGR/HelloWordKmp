@@ -36,13 +36,13 @@ class ListViewModel(
             _listUiState.update { state -> state.copy(isLoading = true) }
         }.catch { exception ->
             _listUiState.update { state -> state.copy(isLoading = false) }
-            _listUiEvent.emit(HomeUiEvent.ShowError(exception = exception))
+            _listUiEvent.emit(HomeUiEvent.ShowErrorDialog(exception = exception.message.toString()))
         }.collect { userList ->
             _listUiState.update { state -> state.copy(isLoading = false) }
             if (userList.isNotEmpty()) {
                 _listUiState.update { state -> state.copy(list = userList) }
             } else {
-                _listUiEvent.emit(HomeUiEvent.ShowError())
+                _listUiEvent.emit(HomeUiEvent.ShowErrorDialog())
             }
         }
     }

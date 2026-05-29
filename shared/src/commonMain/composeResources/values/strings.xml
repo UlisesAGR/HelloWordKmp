@@ -16,9 +16,14 @@
     <string name="user">Usuario</string>
     <string name="back">Volver atrás</string>
     <string name="logout">Cerrar Sesión</string>
+    <string name="open_web">Open web</string>
     <string name="navigate_to_home_successful">Has navegado con éxito al Home</string>
     <string name="accept">Accept</string>
     <string name="warning">Warning</string>
+    <string name="info">Info</string>
+    <string name="you_will_exit_the_application">You will exit the application</string>
+    <string name="cancel">Cancel</string>
+    <string name="error_try_open_navigator_web">Error try open navigator web</string>
 
     <!-- Botton navigation -->
     <string name="list">List</string>

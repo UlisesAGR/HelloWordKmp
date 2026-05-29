@@ -11,46 +11,48 @@ import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import cafe.adriel.voyager.navigator.LocalNavigator
+import cafe.adriel.voyager.navigator.currentOrThrow
 import cafe.adriel.voyager.navigator.tab.CurrentTab
 import cafe.adriel.voyager.navigator.tab.TabNavigator
 import com.hellowordkmp.mobile.presenter.components.SafeScreenContainer
 import com.hellowordkmp.mobile.presenter.components.TabNavigationItem
+import com.hellowordkmp.mobile.presenter.components.ToolbarCustom
 import com.hellowordkmp.mobile.presenter.navigation.home.ListTab
 import com.hellowordkmp.mobile.presenter.navigation.home.ProfileTab
+import com.hellowordkmp.mobile.presenter.navigation.login.WelcomeScreenInstance
 
 @Composable
-fun MainScreenWithTabs(
-    userName: String = "",
-    onLogout: () -> Unit = {},
-) {
-    val tabs = listOf(
-        ListTab(
-            userName = userName,
-        ),
-        ProfileTab(
-            onLogout = onLogout,
-        ),
-    )
-
+fun HomeScreenWithTabs() {
+    val rootNavigator = LocalNavigator.currentOrThrow
     SafeScreenContainer {
-        TabNavigator(tabs[0]) {
+        TabNavigator(tab = ListTab) { tabNavigator ->
             Scaffold(
-                bottomBar = {
-                    NavigationBar {
-                        tabs.forEach { tab ->
-                            TabNavigationItem(tab)
-                        }
+                topBar = {
+                    ToolbarCustom(title = tabNavigator.current.options.title)
+                },
+                content = { padding ->
+                    Box(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(padding),
+                    ) {
+                        CurrentTab()
                     }
                 },
-            ) { padding ->
-                Box(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(padding),
-                ) {
-                    CurrentTab()
-                }
-            }
+                bottomBar = {
+                    NavigationBar {
+                        TabNavigationItem(ListTab)
+                        TabNavigationItem(
+                            ProfileTab(
+                                onLogout = {
+                                    rootNavigator.replaceAll(WelcomeScreenInstance)
+                                },
+                            )
+                        )
+                    }
+                },
+            )
         }
     }
 }

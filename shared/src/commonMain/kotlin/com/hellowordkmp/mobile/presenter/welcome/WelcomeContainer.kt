@@ -13,7 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.hellowordkmp.mobile.presenter.components.ButtonCustom
+import com.hellowordkmp.mobile.presenter.components.ButtonPrimaryCustom
 import com.hellowordkmp.mobile.presenter.components.SafeScreenContainerTest
 import com.hellowordkmp.mobile.presenter.components.TextBigCustom
 import com.hellowordkmp.mobile.presenter.components.TextSmallCustom
@@ -37,7 +37,7 @@ fun WelcomeContainer(
         Spacer(modifier = Modifier.height(Dimens.padding8))
         TextSmallCustom(text = stringResource(Res.string.welcome_app))
         Spacer(modifier = Modifier.height(Dimens.height32))
-        ButtonCustom(
+        ButtonPrimaryCustom(
             text = stringResource(Res.string.login),
             onClick = onNavigateToLogin,
         )
