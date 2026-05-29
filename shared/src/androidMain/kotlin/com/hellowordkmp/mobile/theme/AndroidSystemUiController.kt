@@ -13,7 +13,8 @@ fun setSystemBarsColor(
     view: View,
     darkIcons: Boolean,
 ) {
-    val controller = WindowCompat.getInsetsController(window, view)
-    controller.isAppearanceLightStatusBars = darkIcons
-    controller.isAppearanceLightNavigationBars = darkIcons
+    WindowCompat.getInsetsController(window, view).apply {
+        isAppearanceLightStatusBars = !darkIcons
+        isAppearanceLightNavigationBars = !darkIcons
+    }
 }
