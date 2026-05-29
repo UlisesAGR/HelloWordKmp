@@ -20,7 +20,7 @@ import com.hellowordkmp.mobile.data.network.datasource.UserRemoteDataSourceImpl
 import com.hellowordkmp.mobile.data.repository.UserRepositoryImpl
 import com.hellowordkmp.mobile.domain.repository.UserRepository
 import com.hellowordkmp.mobile.domain.usecase.GetUsersUseCase
-import com.hellowordkmp.mobile.presenter.home.viewmodel.HomeViewModel
+import com.hellowordkmp.mobile.presenter.home.list.viewmodel.ListViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
@@ -72,7 +72,7 @@ val domainModule = module {
 }
 
 val presentationModule = module {
-    viewModelOf(::HomeViewModel)
+    viewModelOf(::ListViewModel)
 }
 
 fun initKoin(config: KoinAppDeclaration? = null) {

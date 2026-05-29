@@ -2,7 +2,7 @@
  * HomeUiState.kt
  * Copyright (c) 2026. All rights reserved
  */
-package com.hellowordkmp.mobile.presenter.home.viewmodel
+package com.hellowordkmp.mobile.presenter.home.list.viewmodel
 
 import com.hellowordkmp.mobile.domain.model.UserModel
 

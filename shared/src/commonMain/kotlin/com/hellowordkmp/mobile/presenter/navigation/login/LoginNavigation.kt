@@ -33,7 +33,7 @@ data object LoginScreenInstance : Screen {
                 navigator.pop()
             },
             onLoginSuccess = { userName ->
-                navigator.replaceAll(HomeScreenInstance(userName))
+                navigator.replaceAll(HomeScreenInstance(userName = userName))
             },
         )
     }

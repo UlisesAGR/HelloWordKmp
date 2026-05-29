@@ -1,8 +1,8 @@
 /*
- * HomeViewModel.kt
+ * ListViewModel.kt
  * Copyright (c) 2026. All rights reserved
  */
-package com.hellowordkmp.mobile.presenter.home.viewmodel
+package com.hellowordkmp.mobile.presenter.home.list.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -15,15 +15,15 @@ import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class HomeViewModel(
+class ListViewModel(
     private val getUsersUseCase: GetUsersUseCase,
 ) : ViewModel() {
 
-    private var _homeUiState = MutableStateFlow(HomeUiState())
-    val homeUiState: StateFlow<HomeUiState> = _homeUiState.asStateFlow()
+    private var _listUiState = MutableStateFlow(HomeUiState())
+    val listUiState: StateFlow<HomeUiState> = _listUiState.asStateFlow()
 
-    private var _homeUiEvent = MutableStateFlow<HomeUiEvent>(HomeUiEvent.Idle)
-    val homeUiEvent: StateFlow<HomeUiEvent> = _homeUiEvent.asStateFlow()
+    private var _listUiEvent = MutableStateFlow<HomeUiEvent>(HomeUiEvent.Idle)
+    val listUiEvent: StateFlow<HomeUiEvent> = _listUiEvent.asStateFlow()
 
     init {
         getUser()
@@ -33,21 +33,21 @@ class HomeViewModel(
         getUsersUseCase(
             url = "user"
         ).onStart {
-            _homeUiState.update { state -> state.copy(isLoading = true) }
+            _listUiState.update { state -> state.copy(isLoading = true) }
         }.catch { exception ->
-            _homeUiState.update { state -> state.copy(isLoading = false) }
-            _homeUiEvent.emit(HomeUiEvent.ShowError(exception = exception))
+            _listUiState.update { state -> state.copy(isLoading = false) }
+            _listUiEvent.emit(HomeUiEvent.ShowError(exception = exception))
         }.collect { userList ->
-            _homeUiState.update { state -> state.copy(isLoading = false) }
+            _listUiState.update { state -> state.copy(isLoading = false) }
             if (userList.isNotEmpty()) {
-                _homeUiState.update { state -> state.copy(list = userList) }
+                _listUiState.update { state -> state.copy(list = userList) }
             } else {
-                _homeUiEvent.emit(HomeUiEvent.ShowError())
+                _listUiEvent.emit(HomeUiEvent.ShowError())
             }
         }
     }
 
     fun resetUiEvent() = viewModelScope.launch {
-        _homeUiEvent.value = HomeUiEvent.Idle
+        _listUiEvent.value = HomeUiEvent.Idle
     }
 }
