@@ -7,7 +7,7 @@ package com.hellowordkmp.mobile.theme
 import androidx.compose.ui.graphics.Color
 
 // Light
-val primaryLight = Color(0xFFFF2668)
+val primaryLight = Color(0xFF269AFF)
 val onPrimaryLight = Color(0xFFFFFFFF)
 val primaryContainerLight = Color(0xFFE6F4F4)
 val onPrimaryContainerLight = Color(0xFF637070)
@@ -44,7 +44,7 @@ val surfaceContainerHighLight = Color(0xFFEAE8E7)
 val surfaceContainerHighestLight = Color(0xFFE4E2E1)
 
 // Dark
-val primaryDark = Color(0xFFFF5C8D)
+val primaryDark = Color(0xFF8DCFFF)
 val onPrimaryDark = Color(0xFF263333)
 val primaryContainerDark = Color(0xFFD7E5E5)
 val onPrimaryContainerDark = Color(0xFF5A6767)
