@@ -3,9 +3,10 @@ package com.hellowordkmp.mobile
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.hellowordkmp.mobile.presenter.navigation.base.BaseNavigation
-import com.hellowordkmp.mobile.theme.AndroidSystemUiController
+import com.hellowordkmp.mobile.theme.setSystemBarsColor
 
 class AppActivity : ComponentActivity() {
 
@@ -14,13 +15,12 @@ class AppActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         splashScreen.setKeepOnScreenCondition { false }
         setContent {
-            // val isDarkMode = isSystemInDarkTheme()
-            AndroidSystemUiController(
+            val isDarkMode = isSystemInDarkTheme()
+            setSystemBarsColor(
                 window = window,
                 view = window.decorView,
-            ).apply {
-                setSystemBarsColor(darkIcons = false)
-            }
+                darkIcons = isDarkMode,
+            )
             BaseNavigation()
         }
     }
