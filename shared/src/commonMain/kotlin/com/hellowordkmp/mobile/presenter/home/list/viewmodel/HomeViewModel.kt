@@ -41,15 +41,15 @@ class ListViewModel(
             url = NetworkClient.USERS_ENDPOINT,
         ).onStart {
             _listUiState.update { state -> state.copy(isLoading = true) }
-        }.catch { exception ->
+        }.catch {
             _listUiState.update { state -> state.copy(isLoading = false) }
-            _listUiEvent.emit(HomeUiEvent.ShowErrorDialog(exception = exception.message.toString()))
+            _listUiEvent.emit(HomeUiEvent.ShowErrorDialog)
         }.collect { userList ->
             if (userList.isNotEmpty()) {
                 insetUsers(userList = userList)
             } else {
                 _listUiState.update { state -> state.copy(isLoading = false) }
-                _listUiEvent.emit(HomeUiEvent.ShowErrorDialog())
+                _listUiEvent.emit(HomeUiEvent.ShowErrorDialog)
             }
         }
     }
@@ -57,14 +57,14 @@ class ListViewModel(
     private fun insetUsers(userList: List<UserModel>) = viewModelScope.launch {
         insetUsersUseCase(
             users = userList,
-        ).catch { exception ->
-            _listUiEvent.emit(HomeUiEvent.ShowErrorDialog(exception = exception.message.toString()))
+        ).catch {
+            _listUiEvent.emit(HomeUiEvent.ShowErrorDialog)
             _listUiState.update { state -> state.copy(isLoading = false) }
         }.collect { userListSize ->
             if (userListSize.isNotEmpty()) {
                 getAllUsers()
             } else {
-                _listUiEvent.emit(HomeUiEvent.ShowErrorDialog())
+                _listUiEvent.emit(HomeUiEvent.ShowErrorDialog)
                 _listUiState.update { state -> state.copy(isLoading = false) }
             }
         }
@@ -72,15 +72,15 @@ class ListViewModel(
 
     private fun getAllUsers() = viewModelScope.launch {
         getAllUsersUseCase()
-            .catch { exception ->
+            .catch {
                 _listUiState.update { state -> state.copy(isLoading = false) }
-                _listUiEvent.emit(HomeUiEvent.ShowErrorDialog(exception = exception.message.toString()))
+                _listUiEvent.emit(HomeUiEvent.ShowErrorDialog)
             }.collect { userList ->
                 if (userList.isNotEmpty()) {
                     _listUiState.update { state -> state.copy(list = userList) }
                     _listUiState.update { state -> state.copy(isLoading = false) }
                 } else {
-                    _listUiEvent.emit(HomeUiEvent.ShowErrorDialog())
+                    _listUiEvent.emit(HomeUiEvent.ShowErrorDialog)
                     _listUiState.update { state -> state.copy(isLoading = false) }
                 }
             }

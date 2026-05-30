@@ -22,6 +22,7 @@ import hellowordkmp.shared.generated.resources.Res
 import hellowordkmp.shared.generated.resources.accept
 import hellowordkmp.shared.generated.resources.empty_list
 import hellowordkmp.shared.generated.resources.idle
+import hellowordkmp.shared.generated.resources.please_try_again_later
 import hellowordkmp.shared.generated.resources.reload
 import hellowordkmp.shared.generated.resources.warning
 import hellowordkmp.shared.generated.resources.you_dont_have_users
@@ -61,7 +62,7 @@ fun ListScreen(
         is HomeUiEvent.ShowErrorDialog -> {
             ErrorDialogCustom(
                 title = stringResource(Res.string.warning),
-                message = (homeUiEvent as HomeUiEvent.ShowErrorDialog).exception,
+                message = stringResource(Res.string.please_try_again_later),
                 buttonText = stringResource(Res.string.accept),
                 onConfirm = viewModel::resetUiEvent,
             )

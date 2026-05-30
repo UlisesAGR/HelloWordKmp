@@ -23,6 +23,7 @@
     <string name="accept">Accept</string>
     <string name="icon">Icon</string>
     <string name="warning">Warning</string>
+    <string name="please_try_again_later">Something went wrong, please try again later</string>
     <string name="info">Info</string>
     <string name="you_will_exit_the_application">You will exit the application</string>
     <string name="cancel">Cancel</string>
