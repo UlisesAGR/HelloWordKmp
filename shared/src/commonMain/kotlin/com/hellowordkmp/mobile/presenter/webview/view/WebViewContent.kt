@@ -11,9 +11,12 @@ import com.multiplatform.webview.web.WebView
 import com.multiplatform.webview.web.WebViewState
 
 @Composable
-fun WebViewContent(state: WebViewState) {
-    WebView(
-        state = state,
-        modifier = Modifier.fillMaxSize()
-    )
+fun WebViewContent(state: WebViewState?) {
+    state?.let { state ->
+        WebView(
+            state = state,
+            modifier = Modifier
+                .fillMaxSize()
+        )
+    }
 }

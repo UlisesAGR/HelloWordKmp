@@ -9,12 +9,17 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
+import cafe.adriel.voyager.navigator.tab.Tab
 import com.hellowordkmp.mobile.theme.AppTheme
 
 @Composable
@@ -38,6 +43,48 @@ fun SafeScreenContainer(
         ) {
             content()
         }
+    }
+}
+
+@Composable
+fun SafeScreenScaffoldContainer(
+    modifier: Modifier = Modifier,
+    title: String,
+    icon: ImageVector? = null,
+    onBack: (() -> Unit) = {},
+    tabs: List<Tab>? = null,
+    content: @Composable BoxScope.() -> Unit,
+) {
+    SafeScreenContainer {
+        Scaffold(
+            modifier = modifier
+                .fillMaxSize(),
+            topBar = {
+                ToolbarCustom(
+                    title = title,
+                    icon = icon,
+                    onBack = onBack,
+                )
+            },
+            content = { padding ->
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(padding),
+                ) {
+                    content()
+                }
+            },
+            bottomBar = {
+                tabs?.let {
+                    NavigationBar {
+                        tabs.forEach { tabs ->
+                            TabNavigationItem(tabs)
+                        }
+                    }
+                }
+            },
+        )
     }
 }
 

@@ -4,20 +4,27 @@
  */
 package com.hellowordkmp.mobile.presenter.home.list.view
 
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.hellowordkmp.mobile.presenter.components.EmptyStateCustom
 import com.hellowordkmp.mobile.presenter.components.ErrorDialogCustom
 import com.hellowordkmp.mobile.presenter.components.LoadingCustom
 import com.hellowordkmp.mobile.presenter.components.SafeScreenContainerTest
 import com.hellowordkmp.mobile.presenter.home.list.viewmodel.HomeUiEvent
 import com.hellowordkmp.mobile.presenter.home.list.viewmodel.ListViewModel
+import com.hellowordkmp.mobile.utils.animation.Animation
 import hellowordkmp.shared.generated.resources.Res
 import hellowordkmp.shared.generated.resources.accept
+import hellowordkmp.shared.generated.resources.empty_list
 import hellowordkmp.shared.generated.resources.idle
+import hellowordkmp.shared.generated.resources.reload
 import hellowordkmp.shared.generated.resources.warning
+import hellowordkmp.shared.generated.resources.you_dont_have_users
 import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
 
@@ -28,18 +35,25 @@ fun ListScreen(
     val homeUiState by viewModel.listUiState.collectAsStateWithLifecycle()
     val homeUiEvent by viewModel.listUiEvent.collectAsStateWithLifecycle()
 
-    LaunchedEffect(Unit) {
-        viewModel.getUsers()
-    }
+    AnimatedContent(
+        targetState = homeUiState,
+        transitionSpec = { Animation.scaleTransition() },
+    ) { currentState ->
+        currentState.list?.takeIf { list -> list.isNotEmpty() }?.let { users ->
+            ListContent(users = users)
+        } ?: run {
+            EmptyStateCustom(
+                icon = Icons.AutoMirrored.Filled.List,
+                title = stringResource(Res.string.empty_list),
+                description = stringResource(Res.string.you_dont_have_users),
+                buttonText = stringResource(Res.string.reload),
+                onButtonClick = viewModel::getUsers,
+            )
+        }
 
-    homeUiState.list?.let { list ->
-        ListContent(
-            users = list,
-        )
-    }
-
-    if (homeUiState.isLoading) {
-        LoadingCustom()
+        if (currentState.isLoading) {
+            LoadingCustom()
+        }
     }
 
     when (homeUiEvent) {
@@ -49,9 +63,7 @@ fun ListScreen(
                 title = stringResource(Res.string.warning),
                 message = (homeUiEvent as HomeUiEvent.ShowErrorDialog).exception,
                 buttonText = stringResource(Res.string.accept),
-                onConfirm = {
-                    viewModel.resetUiEvent()
-                },
+                onConfirm = viewModel::resetUiEvent,
             )
         }
     }

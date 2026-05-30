@@ -30,6 +30,9 @@
     <string name="open_web_view">Open webview</string>
     <string name="web_view">Webview</string>
     <string name="error_load_webview">Error load webview</string>
+    <string name="empty_list">Empty list</string>
+    <string name="you_dont_have_users">You dont have users</string>
+    <string name="reload">Reload</string>
 
     <!-- Botton navigation -->
     <string name="list">List</string>

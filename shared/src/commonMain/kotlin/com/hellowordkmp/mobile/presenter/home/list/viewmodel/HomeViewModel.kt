@@ -31,6 +31,11 @@ class ListViewModel(
     private var _listUiEvent = MutableStateFlow<HomeUiEvent>(HomeUiEvent.Idle)
     val listUiEvent: StateFlow<HomeUiEvent> = _listUiEvent.asStateFlow()
 
+
+    init {
+        getUsers()
+    }
+
     fun getUsers() = viewModelScope.launch {
         getUsersUseCase(
             url = NetworkClient.USERS_ENDPOINT,
@@ -40,10 +45,10 @@ class ListViewModel(
             _listUiState.update { state -> state.copy(isLoading = false) }
             _listUiEvent.emit(HomeUiEvent.ShowErrorDialog(exception = exception.message.toString()))
         }.collect { userList ->
-            _listUiState.update { state -> state.copy(isLoading = false) }
             if (userList.isNotEmpty()) {
                 insetUsers(userList = userList)
             } else {
+                _listUiState.update { state -> state.copy(isLoading = false) }
                 _listUiEvent.emit(HomeUiEvent.ShowErrorDialog())
             }
         }
@@ -53,14 +58,14 @@ class ListViewModel(
         insetUsersUseCase(
             users = userList,
         ).catch { exception ->
-            _listUiState.update { state -> state.copy(isLoading = false) }
             _listUiEvent.emit(HomeUiEvent.ShowErrorDialog(exception = exception.message.toString()))
+            _listUiState.update { state -> state.copy(isLoading = false) }
         }.collect { userListSize ->
             if (userListSize.isNotEmpty()) {
                 getAllUsers()
             } else {
-                _listUiState.update { state -> state.copy(isLoading = false) }
                 _listUiEvent.emit(HomeUiEvent.ShowErrorDialog())
+                _listUiState.update { state -> state.copy(isLoading = false) }
             }
         }
     }
@@ -73,9 +78,10 @@ class ListViewModel(
             }.collect { userList ->
                 if (userList.isNotEmpty()) {
                     _listUiState.update { state -> state.copy(list = userList) }
-                } else {
                     _listUiState.update { state -> state.copy(isLoading = false) }
+                } else {
                     _listUiEvent.emit(HomeUiEvent.ShowErrorDialog())
+                    _listUiState.update { state -> state.copy(isLoading = false) }
                 }
             }
     }

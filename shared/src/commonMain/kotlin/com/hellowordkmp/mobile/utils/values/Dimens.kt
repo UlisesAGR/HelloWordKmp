@@ -16,6 +16,7 @@ object Dimens {
     val height8 = 8.dp
     val height16 = 16.dp
     val height32 = 32.dp
+    val height64 = 64.dp
 
     // Borders
     val borders8 = 8.dp

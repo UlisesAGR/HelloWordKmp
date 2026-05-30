@@ -36,12 +36,8 @@ fun ProfileScreen(
     val profileUiEvent by viewModel.profileUiEvent.collectAsStateWithLifecycle()
 
     ProfileContent(
-        openWebview = {
-            openWebview()
-        },
-        onShowDialog = {
-            viewModel.showInfoDialog()
-        },
+        openWebview = { openWebview() },
+        onShowDialog = viewModel::showInfoDialog,
         onLogout = onLogout,
     )
 
@@ -60,13 +56,11 @@ fun ProfileScreen(
                 onConfirm = {
                     openUrl(
                         url = "https://www.google.com",
-                        onSuccess = { viewModel.resetUiEvent() },
-                        onError = { viewModel.showErrorDialog() },
+                        onSuccess = viewModel::resetUiEvent,
+                        onError = viewModel::showErrorDialog,
                     )
                 },
-                onDismiss = {
-                    viewModel.resetUiEvent()
-                },
+                onDismiss = viewModel::resetUiEvent,
             )
         }
         is ProfileUiEvent.ShowErrorDialog -> {
@@ -74,9 +68,7 @@ fun ProfileScreen(
                 title = stringResource(Res.string.warning),
                 message = stringResource(Res.string.error_try_open_navigator_web),
                 buttonText = stringResource(Res.string.accept),
-                onConfirm = {
-                    viewModel.resetUiEvent()
-                },
+                onConfirm = viewModel::resetUiEvent,
             )
         }
     }
