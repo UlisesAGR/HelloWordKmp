@@ -4,10 +4,18 @@
  */
 package com.hellowordkmp.mobile.presenter.components
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -15,6 +23,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
+import com.hellowordkmp.mobile.utils.values.Dimens
 
 @Composable
 fun TextFieldCustom(
@@ -45,15 +56,15 @@ fun TextFieldCustom(
             },
         ),
         label = {
-            Text(
+            TextMediumBoldCustom(
                 text = label,
-                color = MaterialTheme.colorScheme.onBackground,
+                textAlign = TextAlign.Start,
             )
         },
         placeholder = {
-            Text(
+            TextMediumCustom(
                 text = placeholder,
-                color = MaterialTheme.colorScheme.onBackground,
+                textAlign = TextAlign.Start,
             )
         },
         leadingIcon = {
@@ -71,4 +82,27 @@ fun TextFieldCustom(
             disabledContainerColor = Color.Transparent,
         )
     )
+}
+
+@Preview(
+    showBackground = true,
+)
+@Composable
+private fun TextFieldPreview() {
+    SafeScreenContainerTest {
+        Column(
+            modifier = Modifier
+                .padding(all = Dimens.padding16),
+            verticalArrangement = Arrangement.spacedBy(Dimens.padding16),
+        ) {
+            TextFieldCustom(
+                value = "",
+                onValueChange = {},
+                label = "Example",
+                placeholder = "Example",
+                leadingIcon = Icons.Default.Person,
+                contentDescription = "Example",
+            )
+        }
+    }
 }

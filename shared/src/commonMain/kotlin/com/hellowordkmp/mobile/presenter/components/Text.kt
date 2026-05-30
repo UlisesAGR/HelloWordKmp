@@ -4,7 +4,6 @@
  */
 package com.hellowordkmp.mobile.presenter.components
 
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -20,7 +19,7 @@ fun TextSmallCustom(
     textAlign: TextAlign = TextAlign.Center,
 ) {
     Text(
-        modifier = modifier.fillMaxWidth(),
+        modifier = modifier,
         text = text,
         textAlign = textAlign,
         style = MaterialTheme.typography.bodySmall.copy(
@@ -38,7 +37,7 @@ fun TextSmallBoldCustom(
     textAlign: TextAlign = TextAlign.Center,
 ) {
     Text(
-        modifier = modifier.fillMaxWidth(),
+        modifier = modifier,
         text = text,
         textAlign = textAlign,
         style = MaterialTheme.typography.bodySmall.copy(
@@ -56,7 +55,7 @@ fun TextMediumCustom(
     textAlign: TextAlign = TextAlign.Center,
 ) {
     Text(
-        modifier = modifier.fillMaxWidth(),
+        modifier = modifier,
         text = text,
         textAlign = textAlign,
         style = MaterialTheme.typography.bodySmall.copy(
@@ -74,7 +73,7 @@ fun TextMediumBoldCustom(
     textAlign: TextAlign = TextAlign.Center,
 ) {
     Text(
-        modifier = modifier.fillMaxWidth(),
+        modifier = modifier,
         text = text,
         textAlign = textAlign,
         style = MaterialTheme.typography.bodySmall.copy(
@@ -92,7 +91,7 @@ fun TextBigCustom(
     textAlign: TextAlign = TextAlign.Center,
 ) {
     Text(
-        modifier = modifier.fillMaxWidth(),
+        modifier = modifier,
         text = text,
         textAlign = textAlign,
         style = MaterialTheme.typography.bodySmall.copy(
@@ -110,7 +109,7 @@ fun TextBigBoldCustom(
     textAlign: TextAlign = TextAlign.Center,
 ) {
     Text(
-        modifier = modifier.fillMaxWidth(),
+        modifier = modifier,
         text = text,
         textAlign = textAlign,
         style = MaterialTheme.typography.bodySmall.copy(

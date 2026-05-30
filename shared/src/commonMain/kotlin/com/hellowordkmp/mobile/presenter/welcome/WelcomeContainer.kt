@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
@@ -34,9 +35,15 @@ fun WelcomeContainer(
             .padding(all = Dimens.padding16),
         verticalArrangement = Arrangement.Center,
     ) {
-        TextBigBoldCustom(text = stringResource(Res.string.welcome_app))
+        TextBigBoldCustom(
+            text = stringResource(Res.string.welcome_app),
+            modifier = Modifier.fillMaxWidth(),
+        )
         Spacer(modifier = Modifier.height(Dimens.padding16))
-        TextMediumCustom(text = stringResource(Res.string.explore_our_multiplatform_platform))
+        TextMediumCustom(
+            text = stringResource(Res.string.explore_our_multiplatform_platform),
+            modifier = Modifier.fillMaxWidth(),
+        )
         Spacer(modifier = Modifier.height(Dimens.height32))
         ButtonPrimaryCustom(
             text = stringResource(Res.string.login),

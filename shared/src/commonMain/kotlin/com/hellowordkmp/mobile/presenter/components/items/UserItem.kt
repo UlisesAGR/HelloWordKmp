@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import com.hellowordkmp.mobile.domain.model.UserModel
 import com.hellowordkmp.mobile.presenter.components.SafeScreenContainer
@@ -33,9 +34,17 @@ fun UserItem(user: UserModel) {
             modifier = Modifier
                 .padding(Dimens.padding16),
         ) {
-            TextMediumBoldCustom(text = stringResource(Res.string.name_arg, user.name))
+            TextMediumBoldCustom(
+                text = stringResource(Res.string.name_arg, user.name),
+                modifier = Modifier.fillMaxWidth(),
+                textAlign = TextAlign.Start,
+            )
             Spacer(modifier = Modifier.height(Dimens.padding8))
-            TextMediumBoldCustom(text = stringResource(Res.string.email_arg, user.email))
+            TextMediumBoldCustom(
+                text = stringResource(Res.string.email_arg, user.email),
+                modifier = Modifier.fillMaxWidth(),
+                textAlign = TextAlign.Start,
+            )
         }
     }
 }
@@ -44,7 +53,7 @@ fun UserItem(user: UserModel) {
     showBackground = true,
 )
 @Composable
-private fun ListContentPreview() {
+private fun UserItemPreview() {
     SafeScreenContainer {
         UserItem(
             user = UserModel(

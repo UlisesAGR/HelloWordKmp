@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -39,10 +40,16 @@ fun ListContent(
             ),
         verticalArrangement = Arrangement.Top,
     ) {
-        TextBigBoldCustom(text = stringResource(Res.string.hello))
+        TextBigBoldCustom(
+            text = stringResource(Res.string.hello),
+            modifier = Modifier.fillMaxWidth(),
+        )
         Spacer(modifier = Modifier.height(Dimens.padding8))
-        TextSmallCustom(text = stringResource(Res.string.navigate_to_home_successful))
-        Spacer(modifier = Modifier.height(Dimens.padding16))
+        TextSmallCustom(
+            text = stringResource(Res.string.navigate_to_home_successful),
+            modifier = Modifier.fillMaxWidth(),
+        )
+        Spacer(modifier = Modifier.height(Dimens.padding32))
         LazyColumn {
             items(
                 items = users,

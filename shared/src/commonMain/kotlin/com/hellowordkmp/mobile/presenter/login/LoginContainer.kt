@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -27,6 +28,7 @@ import com.hellowordkmp.mobile.presenter.components.TextButtonCustom
 import com.hellowordkmp.mobile.presenter.components.TextFieldCustom
 import com.hellowordkmp.mobile.utils.values.Dimens
 import hellowordkmp.shared.generated.resources.Res
+import hellowordkmp.shared.generated.resources.back
 import hellowordkmp.shared.generated.resources.login
 import hellowordkmp.shared.generated.resources.user
 import hellowordkmp.shared.generated.resources.user_example
@@ -48,7 +50,10 @@ fun LoginContainer(
             .padding(all = Dimens.padding16),
         verticalArrangement = Arrangement.Center,
     ) {
-        TextBigBoldCustom(text = stringResource(Res.string.login))
+        TextBigBoldCustom(
+            text = stringResource(Res.string.login),
+            modifier = Modifier.fillMaxWidth(),
+        )
         Spacer(modifier = Modifier.height(Dimens.height16))
         TextFieldCustom(
             value = userName,
@@ -70,7 +75,7 @@ fun LoginContainer(
         )
         Spacer(modifier = Modifier.height(Dimens.height16))
         TextButtonCustom(
-            text = stringResource(Res.string.login),
+            text = stringResource(Res.string.back),
             onClick = { onBack() },
         )
     }

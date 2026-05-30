@@ -4,9 +4,14 @@
  */
 package com.hellowordkmp.mobile.presenter.components
 
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import com.hellowordkmp.mobile.utils.values.Dimens
 
 @Composable
 fun DialogCustom(
@@ -54,4 +59,43 @@ fun ErrorDialogCustom(
             )
         },
     )
+}
+
+@Preview(
+    showBackground = true,
+)
+@Composable
+private fun DialogPreview() {
+    SafeScreenContainerTest {
+        Column(
+            modifier = Modifier
+                .padding(all = Dimens.padding16),
+        ) {
+            DialogCustom(
+                title = "Example",
+                message = "Example",
+                buttonTextConfirm = "Example",
+                buttonTextDismiss = "Example",
+            )
+        }
+    }
+}
+
+@Preview(
+    showBackground = true,
+)
+@Composable
+private fun ErrorDialogPreview() {
+    SafeScreenContainerTest {
+        Column(
+            modifier = Modifier
+                .padding(all = Dimens.padding16),
+        ) {
+            ErrorDialogCustom(
+                title = "Example",
+                message = "Example",
+                buttonText = "Example",
+            )
+        }
+    }
 }
