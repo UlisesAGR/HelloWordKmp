@@ -8,5 +8,6 @@ import com.hellowordkmp.mobile.domain.model.UserModel
 
 data class HomeUiState(
     val isLoading: Boolean = false,
+    val isConnected: Boolean = false,
     val list: List<UserModel>? = null,
 )

@@ -19,11 +19,15 @@ import com.hellowordkmp.mobile.data.network.datasource.UserRemoteDataSourceImpl
 import com.hellowordkmp.mobile.data.repository.UserRepositoryImpl
 import com.hellowordkmp.mobile.domain.repository.UserRepository
 import com.hellowordkmp.mobile.domain.usecase.GetAllUsersUseCase
+import com.hellowordkmp.mobile.domain.usecase.GetUserTokenUseCase
 import com.hellowordkmp.mobile.domain.usecase.GetUsersUseCase
 import com.hellowordkmp.mobile.domain.usecase.InsetUsersUseCase
+import com.hellowordkmp.mobile.domain.usecase.SaveUserTokenUseCase
 import com.hellowordkmp.mobile.presenter.home.list.viewmodel.ListViewModel
 import com.hellowordkmp.mobile.presenter.home.profile.viewmodel.ProfileViewModel
 import com.hellowordkmp.mobile.presenter.webview.viewmodel.WebViewViewModel
+import com.hellowordkmp.mobile.utils.connection.getConnectivityProvider
+import dev.jordond.connectivity.Connectivity
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
@@ -34,6 +38,13 @@ import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.KoinAppDeclaration
 import org.koin.dsl.bind
 import org.koin.dsl.module
+
+val connectivityModule = module {
+    single { getConnectivityProvider() }
+    single<Connectivity> {
+        Connectivity(provider = get())
+    }
+}
 
 val dispatcherModule = module {
     single<CoroutineDispatcher> { Dispatchers.IO }
@@ -70,6 +81,8 @@ val domainModule = module {
     factoryOf(::GetUsersUseCase)
     factoryOf(::InsetUsersUseCase)
     factoryOf(::GetAllUsersUseCase)
+    factoryOf(::GetUserTokenUseCase)
+    factoryOf(::SaveUserTokenUseCase)
 }
 
 val presentationModule = module {
@@ -82,6 +95,7 @@ fun initKoin(config: KoinAppDeclaration? = null) {
     startKoin {
         config?.invoke(this)
         modules(
+            connectivityModule,
             dispatcherModule,
             dataStoreModule,
             databaseModule,

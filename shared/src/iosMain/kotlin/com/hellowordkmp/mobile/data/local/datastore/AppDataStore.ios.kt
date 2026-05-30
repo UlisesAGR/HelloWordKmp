@@ -24,6 +24,7 @@ actual fun createDataStore(): DataStore<Preferences> =
                 true,
                 null,
             )
-            (requireNotNull(documentDirectory?.path) + AppDataStore.DATASTORE_NAME).toPath()
+            val path = requireNotNull(documentDirectory?.path) + "/${AppDataStore.DATASTORE_NAME}.preferences_pb"
+            path.toPath()
         },
     )

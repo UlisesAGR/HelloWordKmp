@@ -6,6 +6,7 @@
 
     <!-- None -->
     <string name="idle">Idle</string>
+    <string name="na">N/A</string>
 
     <!-- Text -->
     <string name="hello">¡Hello!</string>
@@ -34,6 +35,9 @@
     <string name="empty_list">Empty list</string>
     <string name="you_dont_have_users">You dont have users</string>
     <string name="reload">Reload</string>
+    <string name="no_wifi">No wifi</string>
+    <string name="you_dont_have_wifi">You dont have internet connection</string>
+    <string name="user_token">User token</string>
 
     <!-- Botton navigation -->
     <string name="list">List</string>

@@ -17,8 +17,9 @@ import kotlinx.io.IOException
 class AppDataStore(private val dataStore: DataStore<Preferences>) {
 
     companion object  {
-        const val DATASTORE_NAME = "hellowordkmp_datastore.ds"
+        const val DATASTORE_NAME = "hellowordkmp_settings"
     }
+
     private object Keys {
         val USER_TOKEN = stringPreferencesKey("user_token")
     }
@@ -26,8 +27,7 @@ class AppDataStore(private val dataStore: DataStore<Preferences>) {
     val userToken: Flow<String?> = dataStore.data
         .catch { exception ->
             if (exception is IOException) emit(emptyPreferences()) else throw exception
-        }
-        .map { data -> data[Keys.USER_TOKEN] }
+        }.map { data -> data[Keys.USER_TOKEN] }
 
     suspend fun saveToken(token: String) {
         dataStore.edit { data -> data[Keys.USER_TOKEN] = token }

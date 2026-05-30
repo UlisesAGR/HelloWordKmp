@@ -60,6 +60,7 @@ kotlin {
             implementation(libs.androidx.sqlite.bundled)
             implementation(libs.androidx.datastore)
             implementation(libs.compose.webview)
+            implementation(libs.dev.jordond.connectivity)
         }
         // Android
         androidMain.dependencies {

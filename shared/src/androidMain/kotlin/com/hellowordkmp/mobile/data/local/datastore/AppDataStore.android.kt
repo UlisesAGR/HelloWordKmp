@@ -15,6 +15,6 @@ actual fun createDataStore(): DataStore<Preferences> =
     PreferenceDataStoreFactory.createWithPath(
         produceFile = {
             val context: Context = getKoin().get()
-            context.filesDir.resolve(AppDataStore.DATASTORE_NAME).absolutePath.toPath()
+            context.filesDir.resolve("${AppDataStore.DATASTORE_NAME}.preferences_pb").absolutePath.toPath()
         },
     )

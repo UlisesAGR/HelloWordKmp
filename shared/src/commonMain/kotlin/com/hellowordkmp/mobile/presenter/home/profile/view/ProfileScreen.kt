@@ -21,6 +21,7 @@ import hellowordkmp.shared.generated.resources.cancel
 import hellowordkmp.shared.generated.resources.error_try_open_navigator_web
 import hellowordkmp.shared.generated.resources.idle
 import hellowordkmp.shared.generated.resources.info
+import hellowordkmp.shared.generated.resources.please_try_again_later
 import hellowordkmp.shared.generated.resources.warning
 import hellowordkmp.shared.generated.resources.you_will_exit_the_application
 import org.jetbrains.compose.resources.stringResource
@@ -36,6 +37,7 @@ fun ProfileScreen(
     val profileUiEvent by viewModel.profileUiEvent.collectAsStateWithLifecycle()
 
     ProfileContent(
+        userToken = profileUiState.userToken,
         openWebview = { openWebview() },
         onShowDialog = viewModel::showInfoDialog,
         onLogout = onLogout,
@@ -66,7 +68,7 @@ fun ProfileScreen(
         is ProfileUiEvent.ShowErrorDialog -> {
             ErrorDialogCustom(
                 title = stringResource(Res.string.warning),
-                message = stringResource(Res.string.error_try_open_navigator_web),
+                message = stringResource(Res.string.please_try_again_later),
                 buttonText = stringResource(Res.string.accept),
                 onConfirm = viewModel::resetUiEvent,
             )

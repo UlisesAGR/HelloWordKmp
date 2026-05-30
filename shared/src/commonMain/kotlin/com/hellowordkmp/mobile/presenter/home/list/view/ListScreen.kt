@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.hellowordkmp.mobile.presenter.components.EmptyStateCustom
+import com.hellowordkmp.mobile.presenter.components.EmptyStateWifiCustom
 import com.hellowordkmp.mobile.presenter.components.ErrorDialogCustom
 import com.hellowordkmp.mobile.presenter.components.LoadingCustom
 import com.hellowordkmp.mobile.presenter.components.SafeScreenContainerTest
@@ -40,15 +40,17 @@ fun ListScreen(
         targetState = homeUiState,
         transitionSpec = { Animation.scaleTransition() },
     ) { currentState ->
+
         currentState.list?.takeIf { list -> list.isNotEmpty() }?.let { users ->
             ListContent(users = users)
         } ?: run {
-            EmptyStateCustom(
+            EmptyStateWifiCustom(
+                isConnected = homeUiState.isConnected,
                 icon = Icons.AutoMirrored.Filled.List,
                 title = stringResource(Res.string.empty_list),
                 description = stringResource(Res.string.you_dont_have_users),
                 buttonText = stringResource(Res.string.reload),
-                onButtonClick = viewModel::getUsers,
+                onButtonClick = viewModel::retryGetUsers,
             )
         }
 
