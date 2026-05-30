@@ -10,16 +10,16 @@
     <!-- Text -->
     <string name="hello">¡Hello!</string>
     <string name="welcome_app">¡Welcome!</string>
-    <string name="explore_our_multiplatform_platform">Explora nuestra plataforma multiplataforma</string>
-    <string name="start">Comenzar</string>
-    <string name="login">Iniciar Sesión</string>
-    <string name="user_name">Nombre de usuario</string>
+    <string name="explore_our_multiplatform_platform">Explore our multi platform</string>
+    <string name="start">Start</string>
+    <string name="login">Login</string>
+    <string name="user_name">User name</string>
     <string name="user_example">Ulises Gonzalez</string>
     <string name="user">User</string>
     <string name="back">Back</string>
     <string name="logout">Logout</string>
     <string name="open_browser">Open Browser</string>
-    <string name="navigate_to_home_successful">Has navegado con éxito al Home</string>
+    <string name="navigate_to_home_successful">You have successfully navigated to the Home</string>
     <string name="accept">Accept</string>
     <string name="icon">Icon</string>
     <string name="warning">Warning</string>

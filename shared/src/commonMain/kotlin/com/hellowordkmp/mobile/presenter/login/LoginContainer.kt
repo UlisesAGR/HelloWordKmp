@@ -22,9 +22,9 @@ import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.tooling.preview.Preview
 import com.hellowordkmp.mobile.presenter.components.ButtonPrimaryCustom
 import com.hellowordkmp.mobile.presenter.components.SafeScreenContainerTest
+import com.hellowordkmp.mobile.presenter.components.TextBigBoldCustom
 import com.hellowordkmp.mobile.presenter.components.TextButtonCustom
 import com.hellowordkmp.mobile.presenter.components.TextFieldCustom
-import com.hellowordkmp.mobile.presenter.components.TextMediumCustom
 import com.hellowordkmp.mobile.utils.values.Dimens
 import hellowordkmp.shared.generated.resources.Res
 import hellowordkmp.shared.generated.resources.login
@@ -48,7 +48,7 @@ fun LoginContainer(
             .padding(all = Dimens.padding16),
         verticalArrangement = Arrangement.Center,
     ) {
-        TextMediumCustom(text = stringResource(Res.string.login))
+        TextBigBoldCustom(text = stringResource(Res.string.login))
         Spacer(modifier = Modifier.height(Dimens.height16))
         TextFieldCustom(
             value = userName,
@@ -60,7 +60,7 @@ fun LoginContainer(
             leadingIcon = Icons.Default.Person,
             contentDescription = stringResource(Res.string.user),
         )
-        Spacer(modifier = Modifier.height(Dimens.height16))
+        Spacer(modifier = Modifier.height(Dimens.height32))
         ButtonPrimaryCustom(
             text = stringResource(Res.string.login),
             onClick = {
@@ -68,7 +68,7 @@ fun LoginContainer(
                 if (userName.isNotBlank()) onLoginSuccess()
             },
         )
-        Spacer(modifier = Modifier.height(Dimens.height8))
+        Spacer(modifier = Modifier.height(Dimens.height16))
         TextButtonCustom(
             text = stringResource(Res.string.login),
             onClick = { onBack() },
