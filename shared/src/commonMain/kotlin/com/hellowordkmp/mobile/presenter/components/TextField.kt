@@ -22,6 +22,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -39,6 +40,7 @@ fun TextFieldCustom(
     keyboardType: KeyboardType = KeyboardType.Text,
     imeAction: ImeAction = ImeAction.Done,
     onImeAction: () -> Unit = {},
+    capitalization: KeyboardCapitalization = KeyboardCapitalization.Sentences,
 ) {
     val focusManager = LocalFocusManager.current
     OutlinedTextField(
@@ -48,6 +50,7 @@ fun TextFieldCustom(
         keyboardOptions = KeyboardOptions(
             keyboardType = keyboardType,
             imeAction = imeAction,
+            capitalization = capitalization
         ),
         keyboardActions = KeyboardActions(
             onAny = {

@@ -20,6 +20,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.tooling.preview.Preview
 import com.hellowordkmp.mobile.presenter.components.ButtonPrimaryCustom
 import com.hellowordkmp.mobile.presenter.components.SafeScreenContainerTest
@@ -64,6 +65,7 @@ fun LoginContainer(
             placeholder = stringResource(Res.string.user_example),
             leadingIcon = Icons.Default.Person,
             contentDescription = stringResource(Res.string.user),
+            capitalization = KeyboardCapitalization.Words,
         )
         Spacer(modifier = Modifier.height(Dimens.height32))
         ButtonPrimaryCustom(
