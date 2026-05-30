@@ -21,4 +21,7 @@ object Dimens {
     val borders8 = 8.dp
     val borders16 = 16.dp
     val borders32 = 32.dp
+
+    // Elevation
+    val elevation4 = 8.dp
 }

@@ -10,8 +10,12 @@ import kotlinx.coroutines.flow.Flow
 interface UserRepository {
     // Remote
     suspend fun getUsers(url: String): Flow<List<UserModel>>
+
     // Local
-    suspend fun insertUser(user: UserModel): Flow<Long>
+    suspend fun insertUsers(users: List<UserModel>): Flow<List<Long>>
+    suspend fun getAllUsers(): Flow<List<UserModel>>
+
+    // Data source
     suspend fun getUserToken(): Flow<String?>
     suspend fun saveUserToken(token: String): Flow<Unit>
 }

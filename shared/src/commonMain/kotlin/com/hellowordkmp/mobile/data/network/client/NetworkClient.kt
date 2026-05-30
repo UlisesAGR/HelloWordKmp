@@ -9,5 +9,6 @@ import io.ktor.client.HttpClient
 expect fun createHttpClient(): HttpClient
 
 object NetworkClient {
-    const val BASE_URL = "https://api.produccion.com/"
+    const val BASE_URL = "https://hellowordkmp.free.beeceptor.com/"
+    const val USERS_ENDPOINT = "userList"
 }

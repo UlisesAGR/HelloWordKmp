@@ -18,7 +18,9 @@ import com.hellowordkmp.mobile.data.network.datasource.UserRemoteDataSource
 import com.hellowordkmp.mobile.data.network.datasource.UserRemoteDataSourceImpl
 import com.hellowordkmp.mobile.data.repository.UserRepositoryImpl
 import com.hellowordkmp.mobile.domain.repository.UserRepository
+import com.hellowordkmp.mobile.domain.usecase.GetAllUsersUseCase
 import com.hellowordkmp.mobile.domain.usecase.GetUsersUseCase
+import com.hellowordkmp.mobile.domain.usecase.InsetUsersUseCase
 import com.hellowordkmp.mobile.presenter.home.list.viewmodel.ListViewModel
 import com.hellowordkmp.mobile.presenter.home.profile.viewmodel.ProfileViewModel
 import com.hellowordkmp.mobile.presenter.webview.viewmodel.WebViewViewModel
@@ -66,6 +68,8 @@ val repositoryModule = module {
 
 val domainModule = module {
     factoryOf(::GetUsersUseCase)
+    factoryOf(::InsetUsersUseCase)
+    factoryOf(::GetAllUsersUseCase)
 }
 
 val presentationModule = module {

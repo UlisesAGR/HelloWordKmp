@@ -16,8 +16,8 @@ class UsersLocalDataSourceImpl(
     private val dataStore: AppDataStore,
 ) : UsersLocalDataSource {
 
-    override suspend fun insertUser(user: UserModel): Long =
-        usersDao.insertUser(user = user.toEntity())
+    override suspend fun insertUsers(users: List<UserModel>): List<Long> =
+        usersDao.insertUsers(users = users.map { data -> data.toEntity() })
 
     override suspend fun getAllUsers(): List<UserModel> =
         usersDao.getAllUsers().map { data -> data.toDomain() }

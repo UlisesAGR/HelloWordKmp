@@ -23,7 +23,11 @@ actual fun createHttpClient(): HttpClient = HttpClient(Darwin) {
 
     install(Logging) {
         level = LogLevel.BODY
-        logger = Logger.DEFAULT
+        logger = object : Logger {
+            override fun log(message: String) {
+                println("Ktor_iOS_Log: $message")
+            }
+        }
     }
 
     install(ContentNegotiation) {

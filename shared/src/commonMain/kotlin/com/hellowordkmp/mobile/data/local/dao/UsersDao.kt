@@ -15,7 +15,7 @@ import com.hellowordkmp.mobile.data.local.model.UserEntity
 interface UsersDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertUser(user: UserEntity): Long
+    suspend fun insertUsers(users: List<UserEntity>): List<Long>
 
     @Query("SELECT * FROM users")
     suspend fun getAllUsers(): List<UserEntity>

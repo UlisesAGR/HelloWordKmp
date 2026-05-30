@@ -9,7 +9,9 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.sp
 
 @Composable
 fun TextSmallCustom(
@@ -21,7 +23,28 @@ fun TextSmallCustom(
         modifier = modifier.fillMaxWidth(),
         text = text,
         textAlign = textAlign,
-        style = MaterialTheme.typography.titleSmall,
+        style = MaterialTheme.typography.bodySmall.copy(
+            fontSize = 12.sp,
+            fontWeight = FontWeight.Normal,
+        ),
+        color = MaterialTheme.colorScheme.onBackground,
+    )
+}
+
+@Composable
+fun TextSmallBoldCustom(
+    text: String,
+    modifier: Modifier = Modifier,
+    textAlign: TextAlign = TextAlign.Center,
+) {
+    Text(
+        modifier = modifier.fillMaxWidth(),
+        text = text,
+        textAlign = textAlign,
+        style = MaterialTheme.typography.bodySmall.copy(
+            fontSize = 12.sp,
+            fontWeight = FontWeight.Bold,
+        ),
         color = MaterialTheme.colorScheme.onBackground,
     )
 }
@@ -36,7 +59,28 @@ fun TextMediumCustom(
         modifier = modifier.fillMaxWidth(),
         text = text,
         textAlign = textAlign,
-        style = MaterialTheme.typography.headlineSmall,
+        style = MaterialTheme.typography.bodySmall.copy(
+            fontSize = 16.sp,
+            fontWeight = FontWeight.Normal,
+        ),
+        color = MaterialTheme.colorScheme.onBackground,
+    )
+}
+
+@Composable
+fun TextMediumBoldCustom(
+    text: String,
+    modifier: Modifier = Modifier,
+    textAlign: TextAlign = TextAlign.Center,
+) {
+    Text(
+        modifier = modifier.fillMaxWidth(),
+        text = text,
+        textAlign = textAlign,
+        style = MaterialTheme.typography.bodySmall.copy(
+            fontSize = 16.sp,
+            fontWeight = FontWeight.Bold,
+        ),
         color = MaterialTheme.colorScheme.onBackground,
     )
 }
@@ -51,7 +95,28 @@ fun TextBigCustom(
         modifier = modifier.fillMaxWidth(),
         text = text,
         textAlign = textAlign,
-        style = MaterialTheme.typography.headlineLarge,
+        style = MaterialTheme.typography.bodySmall.copy(
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Normal,
+        ),
+        color = MaterialTheme.colorScheme.onBackground,
+    )
+}
+
+@Composable
+fun TextBigBoldCustom(
+    text: String,
+    modifier: Modifier = Modifier,
+    textAlign: TextAlign = TextAlign.Center,
+) {
+    Text(
+        modifier = modifier.fillMaxWidth(),
+        text = text,
+        textAlign = textAlign,
+        style = MaterialTheme.typography.bodySmall.copy(
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Bold,
+        ),
         color = MaterialTheme.colorScheme.onBackground,
     )
 }

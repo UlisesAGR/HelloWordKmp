@@ -25,10 +25,15 @@ class UserRepositoryImpl(
     }.flowOn(ioDispatcher)
 
     // Local
-    override suspend fun insertUser(user: UserModel): Flow<Long> = flow {
-        emit(usersLocalDataSource.insertUser(user = user))
+    override suspend fun insertUsers(users: List<UserModel>): Flow<List<Long>> = flow {
+        emit(usersLocalDataSource.insertUsers(users = users))
     }.flowOn(ioDispatcher)
 
+    override suspend fun getAllUsers(): Flow<List<UserModel>> = flow {
+        emit(usersLocalDataSource.getAllUsers())
+    }.flowOn(ioDispatcher)
+
+    // Data source
     override suspend fun getUserToken(): Flow<String?> =
         usersLocalDataSource.getUserToken()
 

@@ -5,6 +5,7 @@
 package com.hellowordkmp.mobile.presenter.home.list.view
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -27,9 +28,15 @@ fun ListScreen(
     val homeUiState by viewModel.listUiState.collectAsStateWithLifecycle()
     val homeUiEvent by viewModel.listUiEvent.collectAsStateWithLifecycle()
 
-    ListContent(
-        username = "Ulises",
-    )
+    LaunchedEffect(Unit) {
+        viewModel.getUsers()
+    }
+
+    homeUiState.list?.let { list ->
+        ListContent(
+            users = list,
+        )
+    }
 
     if (homeUiState.isLoading) {
         LoadingCustom()

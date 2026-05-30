@@ -8,10 +8,13 @@ import com.hellowordkmp.mobile.domain.model.UserModel
 import kotlinx.coroutines.flow.Flow
 
 interface UsersLocalDataSource {
-    suspend fun insertUser(user: UserModel): Long
+    // Local
+    suspend fun insertUsers(users: List<UserModel>): List<Long>
     suspend fun getAllUsers(): List<UserModel>
     suspend fun getUserById(id: Int): UserModel?
     suspend fun deleteUser(user: UserModel)
+
+    // Data source
     suspend fun getUserToken(): Flow<String?>
     suspend fun saveUserToken(token: String)
 }

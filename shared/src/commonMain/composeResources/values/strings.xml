@@ -1,21 +1,23 @@
 <resources>
 
     <!-- String -->
-    <string name="hello_user">¡Hola, %1$s!</string>
+    <string name="name_arg">Name: %1$s</string>
+    <string name="email_arg">Email: %1$s</string>
 
     <!-- None -->
     <string name="idle">Idle</string>
 
     <!-- Text -->
-    <string name="welcome_app">¡Bienvenido a la App!</string>
+    <string name="hello">¡Hello!</string>
+    <string name="welcome_app">¡Welcome!</string>
     <string name="explore_our_multiplatform_platform">Explora nuestra plataforma multiplataforma</string>
     <string name="start">Comenzar</string>
     <string name="login">Iniciar Sesión</string>
     <string name="user_name">Nombre de usuario</string>
     <string name="user_example">Ulises Gonzalez</string>
-    <string name="user">Usuario</string>
-    <string name="back">Volver atrás</string>
-    <string name="logout">Cerrar Sesión</string>
+    <string name="user">User</string>
+    <string name="back">Back</string>
+    <string name="logout">Logout</string>
     <string name="open_browser">Open Browser</string>
     <string name="navigate_to_home_successful">Has navegado con éxito al Home</string>
     <string name="accept">Accept</string>
