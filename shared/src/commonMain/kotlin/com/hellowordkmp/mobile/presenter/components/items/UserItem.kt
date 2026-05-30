@@ -14,10 +14,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import com.hellowordkmp.mobile.domain.model.UserModel
 import com.hellowordkmp.mobile.presenter.components.SafeScreenContainer
 import com.hellowordkmp.mobile.presenter.components.TextMediumBoldCustom
 import com.hellowordkmp.mobile.utils.values.Dimens
+import com.myalbum2026.core.domain.model.UserModel
 import hellowordkmp.shared.generated.resources.Res
 import hellowordkmp.shared.generated.resources.email_arg
 import hellowordkmp.shared.generated.resources.name_arg

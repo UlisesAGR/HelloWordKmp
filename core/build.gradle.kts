@@ -23,7 +23,7 @@ kotlin {
     }
 
     android {
-        namespace = "com.hellowordkmp.mobile.shared"
+        namespace = "com.myalbum2026.core"
         compileSdk = libs.versions.android.compileSdk.get().toInt()
         minSdk = libs.versions.android.minSdk.get().toInt()
 
@@ -41,9 +41,6 @@ kotlin {
     sourceSets {
         // Shared
         commonMain.dependencies {
-            // Module
-            implementation(projects.core)
-            // Libs
             implementation(libs.compose.runtime)
             implementation(libs.compose.foundation)
             implementation(libs.compose.material3)

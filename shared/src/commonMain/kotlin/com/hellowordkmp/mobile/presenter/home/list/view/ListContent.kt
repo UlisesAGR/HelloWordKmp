@@ -16,12 +16,12 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.hellowordkmp.mobile.domain.model.UserModel
 import com.hellowordkmp.mobile.presenter.components.SafeScreenContainer
 import com.hellowordkmp.mobile.presenter.components.TextBigBoldCustom
 import com.hellowordkmp.mobile.presenter.components.TextSmallCustom
 import com.hellowordkmp.mobile.presenter.components.items.UserItem
 import com.hellowordkmp.mobile.utils.values.Dimens
+import com.myalbum2026.core.domain.model.UserModel
 import hellowordkmp.shared.generated.resources.Res
 import hellowordkmp.shared.generated.resources.hello
 import hellowordkmp.shared.generated.resources.navigate_to_home_successful

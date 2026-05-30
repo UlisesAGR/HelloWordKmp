@@ -6,12 +6,12 @@ package com.hellowordkmp.mobile.presenter.home.list.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.hellowordkmp.mobile.data.network.client.NetworkClient
-import com.hellowordkmp.mobile.domain.model.UserModel
-import com.hellowordkmp.mobile.domain.usecase.GetAllUsersUseCase
-import com.hellowordkmp.mobile.domain.usecase.GetUsersUseCase
-import com.hellowordkmp.mobile.domain.usecase.InsetUsersUseCase
-import com.hellowordkmp.mobile.domain.usecase.SaveUserTokenUseCase
+import com.myalbum2026.core.data.network.client.NetworkClient
+import com.myalbum2026.core.domain.model.UserModel
+import com.myalbum2026.core.domain.usecase.GetAllUsersUseCase
+import com.myalbum2026.core.domain.usecase.GetUsersUseCase
+import com.myalbum2026.core.domain.usecase.InsetUsersUseCase
+import com.myalbum2026.core.domain.usecase.SaveUserTokenUseCase
 import dev.jordond.connectivity.Connectivity
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
