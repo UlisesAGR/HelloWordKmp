@@ -19,7 +19,7 @@ class AppActivity : ComponentActivity() {
             setSystemBarsColor(
                 window = window,
                 view = window.decorView,
-                darkIcons = !isDarkMode,
+                darkIcons = isDarkMode,
             )
             BaseNavigation()
         }
