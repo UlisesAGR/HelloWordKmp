@@ -36,10 +36,7 @@ actual fun createHttpClient(): HttpClient = HttpClient(OkHttp) {
 
     install(ContentNegotiation) {
         json(
-            json = Json {
-                ignoreUnknownKeys = true
-                prettyPrint = true
-            },
+            json = Json { ignoreUnknownKeys = true },
             contentType = ContentType.Application.Json,
         )
     }

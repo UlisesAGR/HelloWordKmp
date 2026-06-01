@@ -14,6 +14,7 @@ import com.myalbum2026.core.domain.model.login.LoginModel
 import com.myalbum2026.core.domain.model.user.UserModel
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
+import io.ktor.client.request.accept
 import io.ktor.client.request.get
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody

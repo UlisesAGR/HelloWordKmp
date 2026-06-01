@@ -71,8 +71,7 @@ class LoginViewModel(
             password = password,
         ).onStart {
             _loginUiState.update { state -> state.copy(isLoading = true) }
-        }.catch { exception ->
-            print(exception)
+        }.catch {
             _loginUiEvent.emit(LoginUiEvent.ShowErrorDialog(message = Res.string.please_try_again_later))
             _loginUiState.update { state -> state.copy(isLoading = false) }
         }.collect { response ->
