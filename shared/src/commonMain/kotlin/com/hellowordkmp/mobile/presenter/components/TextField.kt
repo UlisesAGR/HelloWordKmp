@@ -56,7 +56,7 @@ fun TextFieldCustom(
     keyboardType: KeyboardType = KeyboardType.Text,
     imeAction: ImeAction = ImeAction.Done,
     onImeAction: () -> Unit = {},
-    capitalization: KeyboardCapitalization = KeyboardCapitalization.Words,
+    capitalization: KeyboardCapitalization = KeyboardCapitalization.None,
 ) {
     val focusManager = LocalFocusManager.current
 

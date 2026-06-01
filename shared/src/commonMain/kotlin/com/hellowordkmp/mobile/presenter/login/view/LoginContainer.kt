@@ -18,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
@@ -69,7 +70,7 @@ fun LoginContainer(
             placeholder = stringResource(Res.string.email_example),
             leadingIcon = Icons.Default.Email,
             keyboardType = KeyboardType.Email,
-            capitalization = KeyboardCapitalization.None,
+            imeAction = ImeAction.Next,
         )
         TextFieldPasswordCustom(
             value = password,
@@ -78,7 +79,6 @@ fun LoginContainer(
             placeholder = stringResource(Res.string.password_example),
             leadingIcon = Icons.Default.Password,
             keyboardType = KeyboardType.Password,
-            capitalization = KeyboardCapitalization.None,
         )
         Spacer(modifier = Modifier.height(Dimens.height16))
         ButtonPrimaryCustom(
