@@ -10,5 +10,6 @@ expect fun createHttpClient(): HttpClient
 
 object NetworkClient {
     const val BASE_URL = "https://hellowordkmp.free.beeceptor.com/"
+    const val LOGIN_ENDPOINT = "login"
     const val USERS_ENDPOINT = "userList"
 }

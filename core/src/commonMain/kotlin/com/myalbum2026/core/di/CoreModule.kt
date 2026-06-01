@@ -18,11 +18,13 @@ import com.myalbum2026.core.data.network.datasource.UserRemoteDataSource
 import com.myalbum2026.core.data.network.datasource.UserRemoteDataSourceImpl
 import com.myalbum2026.core.data.repository.UserRepositoryImpl
 import com.myalbum2026.core.domain.repository.UserRepository
-import com.myalbum2026.core.domain.usecase.GetAllUsersUseCase
-import com.myalbum2026.core.domain.usecase.GetUserTokenUseCase
-import com.myalbum2026.core.domain.usecase.GetUsersUseCase
-import com.myalbum2026.core.domain.usecase.InsetUsersUseCase
-import com.myalbum2026.core.domain.usecase.SaveUserTokenUseCase
+import com.myalbum2026.core.domain.usecase.login.LoginUseCase
+import com.myalbum2026.core.domain.usecase.login.ValidateLoginUseCase
+import com.myalbum2026.core.domain.usecase.user.GetAllUsersUseCase
+import com.myalbum2026.core.domain.usecase.user.GetUserTokenUseCase
+import com.myalbum2026.core.domain.usecase.user.GetUsersUseCase
+import com.myalbum2026.core.domain.usecase.user.InsetUsersUseCase
+import com.myalbum2026.core.domain.usecase.user.SaveUserTokenUseCase
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
@@ -68,4 +70,6 @@ val domainModule = module {
     factoryOf(::GetAllUsersUseCase)
     factoryOf(::GetUserTokenUseCase)
     factoryOf(::SaveUserTokenUseCase)
+    factoryOf(::ValidateLoginUseCase)
+    factoryOf(::LoginUseCase)
 }

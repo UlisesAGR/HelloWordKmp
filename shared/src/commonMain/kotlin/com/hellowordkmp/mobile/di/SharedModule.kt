@@ -6,6 +6,7 @@ package com.hellowordkmp.mobile.di
 
 import com.hellowordkmp.mobile.presenter.home.list.viewmodel.ListViewModel
 import com.hellowordkmp.mobile.presenter.home.profile.viewmodel.ProfileViewModel
+import com.hellowordkmp.mobile.presenter.login.viewmodel.LoginViewModel
 import com.hellowordkmp.mobile.presenter.webview.viewmodel.WebViewViewModel
 import com.hellowordkmp.mobile.utils.connection.getConnectivityProvider
 import com.myalbum2026.core.di.dataModule
@@ -29,6 +30,7 @@ val connectivityModule = module {
 }
 
 val viewmodelModule = module {
+    viewModelOf(::LoginViewModel)
     viewModelOf(::ListViewModel)
     viewModelOf(::ProfileViewModel)
     viewModelOf(::WebViewViewModel)

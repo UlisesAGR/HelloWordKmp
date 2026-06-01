@@ -2,7 +2,7 @@
  * UserResponse.kt
  * Copyright (c) 2026. All rights reserved
  */
-package com.myalbum2026.core.data.network.model
+package com.myalbum2026.core.data.network.model.response.user
 
 import kotlinx.serialization.Serializable
 
@@ -11,4 +11,5 @@ data class UserResponse(
     val id: Int?,
     val name: String?,
     val email: String?,
+    val token: String?,
 )

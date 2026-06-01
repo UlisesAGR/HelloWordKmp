@@ -6,9 +6,9 @@ package com.myalbum2026.core.data.local.datasource
 
 import com.myalbum2026.core.data.local.dao.UsersDao
 import com.myalbum2026.core.data.local.datastore.AppDataStore
-import com.myalbum2026.core.domain.mapper.toDomain
-import com.myalbum2026.core.domain.mapper.toEntity
-import com.myalbum2026.core.domain.model.UserModel
+import com.myalbum2026.core.domain.mapper.user.toDomain
+import com.myalbum2026.core.domain.mapper.user.toEntity
+import com.myalbum2026.core.domain.model.user.UserModel
 import kotlinx.coroutines.flow.Flow
 
 class UsersLocalDataSourceImpl(

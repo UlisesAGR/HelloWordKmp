@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
-import com.hellowordkmp.mobile.presenter.login.LoginScreen
+import com.hellowordkmp.mobile.presenter.login.view.LoginScreen
 import com.hellowordkmp.mobile.presenter.navigation.home.HomeScreenInstance
 import com.hellowordkmp.mobile.presenter.welcome.WelcomeScreen
 

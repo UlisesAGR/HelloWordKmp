@@ -4,7 +4,7 @@
  */
 package com.myalbum2026.core.data.local.datasource
 
-import com.myalbum2026.core.domain.model.UserModel
+import com.myalbum2026.core.domain.model.user.UserModel
 import kotlinx.coroutines.flow.Flow
 
 interface UsersLocalDataSource {

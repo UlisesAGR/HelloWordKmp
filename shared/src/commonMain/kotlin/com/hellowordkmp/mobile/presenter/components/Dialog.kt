@@ -12,6 +12,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.hellowordkmp.mobile.utils.values.Dimens
+import org.jetbrains.compose.resources.StringResource
+import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun DialogCustom(
@@ -52,6 +54,26 @@ fun ErrorDialogCustom(
         onDismissRequest = {},
         title = { Text(text = title) },
         text = { Text(text = message) },
+        confirmButton = {
+            ButtonPrimaryCustom(
+                text = buttonText,
+                onClick = onConfirm,
+            )
+        },
+    )
+}
+
+@Composable
+fun ErrorDialogCustom(
+    title: String,
+    message: StringResource,
+    buttonText: String,
+    onConfirm: () -> Unit = {},
+) {
+    AlertDialog(
+        onDismissRequest = {},
+        title = { Text(text = title) },
+        text = { Text(text = stringResource(message)) },
         confirmButton = {
             ButtonPrimaryCustom(
                 text = buttonText,

@@ -29,15 +29,18 @@ actual fun createHttpClient(): HttpClient = HttpClient(OkHttp) {
         level = LogLevel.BODY
         logger = object : Logger {
             override fun log(message: String) {
-                Log.d("API_DEBUG", message)
+                Log.d("Ktor_Android_Log:", message)
             }
         }
     }
 
     install(ContentNegotiation) {
         json(
-            json = Json { ignoreUnknownKeys = true },
-            contentType = ContentType.Any,
+            json = Json {
+                ignoreUnknownKeys = true
+                prettyPrint = true
+            },
+            contentType = ContentType.Application.Json,
         )
     }
 

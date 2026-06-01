@@ -15,8 +15,14 @@
     <string name="start">Start</string>
     <string name="login">Login</string>
     <string name="user_name">User name</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="show_password">Show password</string>
+    <string name="gone_password">Gone password</string>
     <string name="user_example">Ulises Gonzalez</string>
+    <string name="password_example">Password1234@</string>
     <string name="user">User</string>
+    <string name="email_example">example@gmail.com</string>
     <string name="back">Back</string>
     <string name="logout">Logout</string>
     <string name="open_browser">Open Browser</string>
@@ -38,6 +44,8 @@
     <string name="no_wifi">No wifi</string>
     <string name="you_dont_have_wifi">You dont have internet connection</string>
     <string name="user_token">User token</string>
+    <string name="email_empty">Email empty</string>
+    <string name="password_empty">Password empty</string>
 
     <!-- Botton navigation -->
     <string name="list">List</string>

@@ -17,7 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.hellowordkmp.mobile.presenter.components.SafeScreenContainer
 import com.hellowordkmp.mobile.presenter.components.TextMediumBoldCustom
 import com.hellowordkmp.mobile.utils.values.Dimens
-import com.myalbum2026.core.domain.model.UserModel
+import com.myalbum2026.core.domain.model.user.UserModel
 import hellowordkmp.shared.generated.resources.Res
 import hellowordkmp.shared.generated.resources.email_arg
 import hellowordkmp.shared.generated.resources.name_arg
@@ -60,6 +60,7 @@ private fun UserItemPreview() {
                 id = 0,
                 name = "Example",
                 email = "example@gmail.com",
+                token = "2C4545",
             )
         )
     }

@@ -4,7 +4,7 @@
  */
 package com.hellowordkmp.mobile.presenter.home.list.viewmodel
 
-import com.myalbum2026.core.domain.model.UserModel
+import com.myalbum2026.core.domain.model.user.UserModel
 
 data class HomeUiState(
     val isLoading: Boolean = false,

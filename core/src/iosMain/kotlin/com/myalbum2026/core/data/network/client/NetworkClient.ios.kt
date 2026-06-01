@@ -25,15 +25,18 @@ actual fun createHttpClient(): HttpClient = HttpClient(Darwin) {
         level = LogLevel.BODY
         logger = object : Logger {
             override fun log(message: String) {
-                println("Ktor_iOS_Log: $message")
+                println("Ktor_Ios_Log: $message")
             }
         }
     }
 
     install(ContentNegotiation) {
         json(
-            json = Json { ignoreUnknownKeys = true },
-            contentType = ContentType.Any,
+            json = Json {
+                ignoreUnknownKeys = true
+                prettyPrint = true
+            },
+            contentType = ContentType.Application.Json,
         )
     }
 

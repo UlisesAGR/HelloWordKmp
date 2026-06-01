@@ -21,7 +21,7 @@ import com.hellowordkmp.mobile.presenter.components.TextBigBoldCustom
 import com.hellowordkmp.mobile.presenter.components.TextSmallCustom
 import com.hellowordkmp.mobile.presenter.components.items.UserItem
 import com.hellowordkmp.mobile.utils.values.Dimens
-import com.myalbum2026.core.domain.model.UserModel
+import com.myalbum2026.core.domain.model.user.UserModel
 import hellowordkmp.shared.generated.resources.Res
 import hellowordkmp.shared.generated.resources.hello
 import hellowordkmp.shared.generated.resources.navigate_to_home_successful
@@ -73,11 +73,13 @@ private fun ListContentPreview() {
                     id = 0,
                     name = "Example",
                     email = "example@gmail.com",
+                    token = "2D7D78D7NYD",
                 ),
                 UserModel(
                     id = 1,
                     name = "Example",
                     email = "example@gmail.com",
+                    token = "2D7D78D7NYD",
                 ),
             )
         )

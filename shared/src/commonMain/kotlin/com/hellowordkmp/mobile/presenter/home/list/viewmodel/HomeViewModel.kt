@@ -7,11 +7,11 @@ package com.hellowordkmp.mobile.presenter.home.list.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.myalbum2026.core.data.network.client.NetworkClient
-import com.myalbum2026.core.domain.model.UserModel
-import com.myalbum2026.core.domain.usecase.GetAllUsersUseCase
-import com.myalbum2026.core.domain.usecase.GetUsersUseCase
-import com.myalbum2026.core.domain.usecase.InsetUsersUseCase
-import com.myalbum2026.core.domain.usecase.SaveUserTokenUseCase
+import com.myalbum2026.core.domain.model.user.UserModel
+import com.myalbum2026.core.domain.usecase.user.GetAllUsersUseCase
+import com.myalbum2026.core.domain.usecase.user.GetUsersUseCase
+import com.myalbum2026.core.domain.usecase.user.InsetUsersUseCase
+import com.myalbum2026.core.domain.usecase.user.SaveUserTokenUseCase
 import dev.jordond.connectivity.Connectivity
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -94,7 +94,7 @@ class ListViewModel(
             }.collect { userList ->
                 if (userList.isNotEmpty()) {
                     _listUiState.update { state -> state.copy(list = userList) }
-                    saveUserToken(userToken = userList.first().name)
+                    saveUserToken(userToken = userList.first().token)
                 } else {
                     _listUiEvent.emit(HomeUiEvent.ShowErrorDialog)
                     _listUiState.update { state -> state.copy(isLoading = false) }
