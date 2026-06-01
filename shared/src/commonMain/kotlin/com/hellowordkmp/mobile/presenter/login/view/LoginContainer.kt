@@ -68,7 +68,8 @@ fun LoginContainer(
             label = stringResource(Res.string.email),
             placeholder = stringResource(Res.string.email_example),
             leadingIcon = Icons.Default.Email,
-            capitalization = KeyboardCapitalization.Words,
+            keyboardType = KeyboardType.Email,
+            capitalization = KeyboardCapitalization.None,
         )
         TextFieldPasswordCustom(
             value = password,
