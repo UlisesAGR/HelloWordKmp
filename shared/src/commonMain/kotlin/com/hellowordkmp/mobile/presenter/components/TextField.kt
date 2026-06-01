@@ -27,7 +27,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -55,11 +54,9 @@ fun TextFieldCustom(
     contentDescription: String? = null,
     keyboardType: KeyboardType = KeyboardType.Text,
     imeAction: ImeAction = ImeAction.Done,
-    onImeAction: () -> Unit = {},
     capitalization: KeyboardCapitalization = KeyboardCapitalization.None,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
 ) {
-    val focusManager = LocalFocusManager.current
-
     OutlinedTextField(
         value = value,
         onValueChange = onValueChange,
@@ -73,12 +70,7 @@ fun TextFieldCustom(
             imeAction = imeAction,
             capitalization = capitalization
         ),
-        keyboardActions = KeyboardActions(
-            onAny = {
-                onImeAction()
-                focusManager.clearFocus()
-            },
-        ),
+        keyboardActions = keyboardActions,
         label = {
             TextMediumBoldCustom(
                 text = label,
@@ -119,11 +111,10 @@ fun TextFieldPasswordCustom(
     contentDescription: String? = null,
     keyboardType: KeyboardType = KeyboardType.Text,
     imeAction: ImeAction = ImeAction.Done,
-    onImeAction: () -> Unit = {},
     capitalization: KeyboardCapitalization = KeyboardCapitalization.Words,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
 ) {
     var passwordVisible by rememberSaveable { mutableStateOf(false) }
-    val focusManager = LocalFocusManager.current
 
     OutlinedTextField(
         value = value,
@@ -138,12 +129,7 @@ fun TextFieldPasswordCustom(
             imeAction = imeAction,
             capitalization = capitalization
         ),
-        keyboardActions = KeyboardActions(
-            onAny = {
-                onImeAction()
-                focusManager.clearFocus()
-            },
-        ),
+        keyboardActions = keyboardActions,
         visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
         trailingIcon = {
             val image = if (passwordVisible) Icons.Filled.Visibility else Icons.Filled.VisibilityOff

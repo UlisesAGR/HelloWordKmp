@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Password
@@ -19,7 +20,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import com.hellowordkmp.mobile.presenter.components.ButtonPrimaryCustom
@@ -79,6 +79,13 @@ fun LoginContainer(
             placeholder = stringResource(Res.string.password_example),
             leadingIcon = Icons.Default.Password,
             keyboardType = KeyboardType.Password,
+            imeAction = ImeAction.Done,
+            keyboardActions = KeyboardActions(
+                onAny = {
+                    focusManager.clearFocus()
+                    onLoginClick()
+                },
+            ),
         )
         Spacer(modifier = Modifier.height(Dimens.height16))
         ButtonPrimaryCustom(
