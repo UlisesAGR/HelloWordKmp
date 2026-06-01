@@ -23,7 +23,7 @@ fun TextSmallCustom(
         text = text,
         textAlign = textAlign,
         style = MaterialTheme.typography.bodySmall.copy(
-            fontSize = 12.sp,
+            fontSize = 16.sp,
             fontWeight = FontWeight.Normal,
         ),
         color = MaterialTheme.colorScheme.onBackground,
@@ -41,7 +41,7 @@ fun TextSmallBoldCustom(
         text = text,
         textAlign = textAlign,
         style = MaterialTheme.typography.bodySmall.copy(
-            fontSize = 12.sp,
+            fontSize = 16.sp,
             fontWeight = FontWeight.Bold,
         ),
         color = MaterialTheme.colorScheme.onBackground,
@@ -59,7 +59,7 @@ fun TextMediumCustom(
         text = text,
         textAlign = textAlign,
         style = MaterialTheme.typography.bodySmall.copy(
-            fontSize = 16.sp,
+            fontSize = 18.sp,
             fontWeight = FontWeight.Normal,
         ),
         color = MaterialTheme.colorScheme.onBackground,
@@ -77,7 +77,7 @@ fun TextMediumBoldCustom(
         text = text,
         textAlign = textAlign,
         style = MaterialTheme.typography.bodySmall.copy(
-            fontSize = 16.sp,
+            fontSize = 18.sp,
             fontWeight = FontWeight.Bold,
         ),
         color = MaterialTheme.colorScheme.onBackground,
@@ -95,7 +95,7 @@ fun TextBigCustom(
         text = text,
         textAlign = textAlign,
         style = MaterialTheme.typography.bodySmall.copy(
-            fontSize = 20.sp,
+            fontSize = 24.sp,
             fontWeight = FontWeight.Normal,
         ),
         color = MaterialTheme.colorScheme.onBackground,
@@ -113,7 +113,7 @@ fun TextBigBoldCustom(
         text = text,
         textAlign = textAlign,
         style = MaterialTheme.typography.bodySmall.copy(
-            fontSize = 20.sp,
+            fontSize = 24.sp,
             fontWeight = FontWeight.Bold,
         ),
         color = MaterialTheme.colorScheme.onBackground,

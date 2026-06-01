@@ -24,22 +24,62 @@ fun getAppTypography(): Typography {
         headlineLarge = TextStyle(
             fontFamily = font,
             fontWeight = FontWeight.Bold,
-            fontSize = 32.sp,
+            fontSize = 24.sp,
         ),
         titleLarge = TextStyle(
             fontFamily = font,
-            fontWeight = FontWeight.Bold,
-            fontSize = 22.sp,
+            fontWeight = FontWeight.Normal,
+            fontSize = 24.sp,
         ),
         bodyLarge = TextStyle(
+            fontFamily = font,
+            fontWeight = FontWeight.Bold,
+            fontSize = 24.sp,
+        ),
+        labelLarge = TextStyle(
+            fontFamily = font,
+            fontWeight = FontWeight.Normal,
+            fontSize = 24.sp,
+        ),
+        headlineMedium = TextStyle(
+            fontFamily = font,
+            fontWeight = FontWeight.Bold,
+            fontSize = 18.sp,
+        ),
+        titleMedium = TextStyle(
+            fontFamily = font,
+            fontWeight = FontWeight.Normal,
+            fontSize = 18.sp,
+        ),
+        bodyMedium = TextStyle(
+            fontFamily = font,
+            fontWeight = FontWeight.Bold,
+            fontSize = 18.sp,
+        ),
+        labelMedium = TextStyle(
             fontFamily = font,
             fontWeight = FontWeight.Normal,
             fontSize = 16.sp,
         ),
-        labelLarge = TextStyle(
+        headlineSmall = TextStyle(
             fontFamily = font,
             fontWeight = FontWeight.Bold,
-            fontSize = 14.sp,
-        )
+            fontSize = 16.sp,
+        ),
+        titleSmall = TextStyle(
+            fontFamily = font,
+            fontWeight = FontWeight.Normal,
+            fontSize = 16.sp,
+        ),
+        bodySmall = TextStyle(
+            fontFamily = font,
+            fontWeight = FontWeight.Bold,
+            fontSize = 16.sp,
+        ),
+        labelSmall = TextStyle(
+            fontFamily = font,
+            fontWeight = FontWeight.Normal,
+            fontSize = 16.sp,
+        ),
     )
 }
