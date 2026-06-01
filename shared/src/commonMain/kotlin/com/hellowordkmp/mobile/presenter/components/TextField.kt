@@ -21,11 +21,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
 import com.hellowordkmp.mobile.utils.values.Dimens
 
 @Composable
@@ -47,6 +50,10 @@ fun TextFieldCustom(
         value = value,
         onValueChange = onValueChange,
         modifier = modifier.fillMaxWidth(),
+        textStyle = TextStyle(
+            fontSize = 16.sp,
+            fontWeight = FontWeight.Normal,
+        ),
         keyboardOptions = KeyboardOptions(
             keyboardType = keyboardType,
             imeAction = imeAction,

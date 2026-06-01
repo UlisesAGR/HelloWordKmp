@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -39,9 +38,10 @@ fun ButtonPrimaryCustom(
             contentColor = MaterialTheme.colorScheme.onPrimary,
         )
     ) {
-        Text(
+        TextMediumCustom(
             text = text,
-            style = MaterialTheme.typography.labelLarge,
+            modifier = Modifier.fillMaxWidth(),
+            color = MaterialTheme.colorScheme.background,
         )
     }
 }
@@ -65,9 +65,10 @@ fun ButtonSecondaryCustom(
             contentColor = MaterialTheme.colorScheme.onSecondary,
         )
     ) {
-        Text(
+        TextMediumCustom(
             text = text,
-            style = MaterialTheme.typography.labelLarge,
+            modifier = Modifier.fillMaxWidth(),
+            color = MaterialTheme.colorScheme.background,
         )
     }
 }
@@ -84,9 +85,9 @@ fun TextButtonCustom(
             .fillMaxWidth()
             .height(50.dp),
     ) {
-        Text(
+        TextMediumCustom(
             text = text,
-            style = MaterialTheme.typography.labelLarge,
+            modifier = Modifier.fillMaxWidth(),
             color = MaterialTheme.colorScheme.primary,
         )
     }

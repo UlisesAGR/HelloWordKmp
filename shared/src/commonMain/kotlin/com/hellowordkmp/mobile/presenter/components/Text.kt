@@ -8,6 +8,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
@@ -16,6 +17,7 @@ import androidx.compose.ui.unit.sp
 fun TextSmallCustom(
     text: String,
     modifier: Modifier = Modifier,
+    color: Color = MaterialTheme.colorScheme.onBackground,
     textAlign: TextAlign = TextAlign.Center,
 ) {
     Text(
@@ -26,7 +28,7 @@ fun TextSmallCustom(
             fontSize = 16.sp,
             fontWeight = FontWeight.Normal,
         ),
-        color = MaterialTheme.colorScheme.onBackground,
+        color = color,
     )
 }
 
@@ -34,6 +36,7 @@ fun TextSmallCustom(
 fun TextSmallBoldCustom(
     text: String,
     modifier: Modifier = Modifier,
+    color: Color = MaterialTheme.colorScheme.onBackground,
     textAlign: TextAlign = TextAlign.Center,
 ) {
     Text(
@@ -44,7 +47,7 @@ fun TextSmallBoldCustom(
             fontSize = 16.sp,
             fontWeight = FontWeight.Bold,
         ),
-        color = MaterialTheme.colorScheme.onBackground,
+        color = color,
     )
 }
 
@@ -52,6 +55,7 @@ fun TextSmallBoldCustom(
 fun TextMediumCustom(
     text: String,
     modifier: Modifier = Modifier,
+    color: Color = MaterialTheme.colorScheme.onBackground,
     textAlign: TextAlign = TextAlign.Center,
 ) {
     Text(
@@ -62,7 +66,7 @@ fun TextMediumCustom(
             fontSize = 18.sp,
             fontWeight = FontWeight.Normal,
         ),
-        color = MaterialTheme.colorScheme.onBackground,
+        color = color,
     )
 }
 
@@ -70,6 +74,7 @@ fun TextMediumCustom(
 fun TextMediumBoldCustom(
     text: String,
     modifier: Modifier = Modifier,
+    color: Color = MaterialTheme.colorScheme.onBackground,
     textAlign: TextAlign = TextAlign.Center,
 ) {
     Text(
@@ -80,7 +85,7 @@ fun TextMediumBoldCustom(
             fontSize = 18.sp,
             fontWeight = FontWeight.Bold,
         ),
-        color = MaterialTheme.colorScheme.onBackground,
+        color = color,
     )
 }
 
@@ -88,6 +93,7 @@ fun TextMediumBoldCustom(
 fun TextBigCustom(
     text: String,
     modifier: Modifier = Modifier,
+    color: Color = MaterialTheme.colorScheme.onBackground,
     textAlign: TextAlign = TextAlign.Center,
 ) {
     Text(
@@ -98,7 +104,7 @@ fun TextBigCustom(
             fontSize = 24.sp,
             fontWeight = FontWeight.Normal,
         ),
-        color = MaterialTheme.colorScheme.onBackground,
+        color = color,
     )
 }
 
@@ -106,6 +112,7 @@ fun TextBigCustom(
 fun TextBigBoldCustom(
     text: String,
     modifier: Modifier = Modifier,
+    color: Color = MaterialTheme.colorScheme.onBackground,
     textAlign: TextAlign = TextAlign.Center,
 ) {
     Text(
@@ -116,6 +123,6 @@ fun TextBigBoldCustom(
             fontSize = 24.sp,
             fontWeight = FontWeight.Bold,
         ),
-        color = MaterialTheme.colorScheme.onBackground,
+        color = color,
     )
 }
