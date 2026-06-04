@@ -30,6 +30,7 @@ lib-sqlite = "2.6.2"
 lib-datastore = "1.2.1"
 lib-compose-webview = "2.0.3"
 lib-connectivity = "2.4.1"
+lib-coil = "2.9.8"
 # Plugins
 lib-agp = "9.2.1"
 lib-composeMultiplatform = "1.11.0"
@@ -109,6 +110,9 @@ dev-moko-permissions-microphone = { module = 'dev.icerock.moko:permissions-micro
 dev-moko-permissions-motion = { module = 'dev.icerock.moko:permissions-motion', version.ref = 'lib-mokoPermissions-compose' }
 dev-moko-permissions-notifications = { module = 'dev.icerock.moko:permissions-notifications', version.ref = 'lib-mokoPermissions-compose' }
 dev-moko-permissions-storage = { module = 'dev.icerock.moko:permissions-storage', version.ref = 'lib-mokoPermissions-compose' }
+
+# Coil
+coil-network-compose = { module = "com.github.skydoves:landscapist-coil3", version.ref = "lib-coil" }
 
 # Test
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "lib-kotlin" }

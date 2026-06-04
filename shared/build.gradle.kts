@@ -64,6 +64,7 @@ kotlin {
             implementation(libs.androidx.datastore)
             implementation(libs.compose.webview)
             implementation(libs.dev.jordond.connectivity)
+            implementation(libs.coil.network.compose)
         }
         // Android
         androidMain.dependencies {
